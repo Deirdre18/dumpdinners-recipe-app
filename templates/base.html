@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--referred to this link for downloading bootstrap, as well as previous CI tutorials - https://forums.fedoraforum.org/showthread.php?314148-How-to-download-bootstrap-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }} - DumpDinners</title>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
+</head>
+
+<body>
+   
+       <nav>
+            <div class="nav-wrapper">
+                <a href="{{url_for('get_recipes')}}" class="brand-logo">DumpDinners</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    
+                    <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                    <li><a href="{{url_for('add_recipe')}}">Add your Dump</a></li>
+                  
+                     <li><a href="">Login / Register<li></a>
+                     <li><a href="">Logout</a></li>
+                     
+                     <li><a href="{{url_for('search')}}"><i class="material-icons">search</i></a></li></a></li>
+                   
+                   
+                </ul>
+                
+                <ul class="side-nav" id="mobile-demo">
+                  
+                    <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                    <li><a href="{{url_for('add_recipe')}}">Add your Dump</a></li>
+                    
+                     <li><a href="">Login / Register<li></a>
+                     <li><a href="">Logout</a></li>
+                     
+                    <li><a href=""><i class="material-icons">search</i></a></li></a></li>
+                </ul>
+        </div>
+  </nav>
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+       
+        <div class="parallax">
+            <img src="{{ url_for('static', filename='uploads/' + 'still-life.jpg') }}"> 
+        </div>    
+       
+        <h2 class="header center dark-blue-text text-darken-4" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
+        
+         <h1 class="header center dark-blue-text text-darken-4" class="header"><small>Get Dumping</small></h1>
+        
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+           <div class="search text right">
+            <form action="{{ url_for('search') }}">
+               
+                <input type="submit" name="query" class="btn btn-primary" value="Search Recipes!"/>
+                
+            </form>
+           </div>
+           
+         
+        <img src="
+    {{ url_for('static', filename='uploads/' + 'still-life.jpg') }}"> </div>
+           
+        
+        </div>
+    </div>
+    <!--Referred to this link for adding photos dynamically. https://stackoverflow.com/questions/40877272/jinja2-not-displaying-the-images-->
+    <!--https://www.google.com/search?rlz=1C1AWFA_enIE805IE805&biw=1024&bih=657&tbm=isch&sa=1&ei=ay5fXOW8EvXgxgOgrr_oCQ&q=background+images+for+recipes&oq=images+for+recipes&gs_l=img.1.1.0j0i7i30.32364.34043..38749...0.0..1.197.709.7j2......0....1..gws-wiz-img.SBFt-lnnmWs#imgdii=Dd45noBQDgm7GM:&imgrc=krIJKEtBV66GdM:-->
+    
+    </div>   
+    
+       
+    
+        <!--<h1>Outside!</h1>-->
+        {% block content %}
+        {% endblock %}
+        
+         
+       
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+       
+        
+        <script type="text/javascript">
+            /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
+            $(document).ready(function() {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+        });
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+        
+         $(document).ready(function(){
+        $('.parallax').parallax();
+        });
+        
+       
+    </script>
+  
+    
+    
+ 
+   </body>
+</html>
+</html>

@@ -1,0 +1,75 @@
+.card-body {
+    width: 75%;
+    margin-left: 0;
+    left: auto;
+    right: auto;
+    white-space: pre-wrap;
+    
+  
+}
+
+#recipe-cards {height:100%;}
+   
+   
+#dashboard2 {text-align: center;}    
+
+#dashboard4 {text-align: center;}  
+   
+h3 {margin-top: 10%}   
+   
+.main { margin-top: 20px;}
+
+.card-image {width:25%;}
+
+
+
+#ingredients { white-space: pre-wrap;
+                margin-top: 20px;
+    
+}
+#method { white-space: pre-wrap;
+          margin-top: 20px;
+    
+    
+}
+
+p .heading {margin-top: 30%;}
+
+
+.card-image {white-space: pre-wrap;
+            margin-bottom: -80px;
+}
+
+
+
+
+h1 {text-align: center;
+    margin-top: 20px;
+    
+}
+
+p {  margin-top: 20%;}
+
+
+.nav-wrapper {background-color: blue;}
+
+#Add {color: indigo;
+}
+
+#View {color: indigo;
+}
+
+.brand-logo{text-align:left;}
+
+.btn_small {
+    height: 24px;
+    width: 60px;
+    line-height: 24px;
+    margin: 5px 5px;
+    padding: 0 0.5em;
+}
+
+.task_header {
+    margin-top: 5px;
+   
+}

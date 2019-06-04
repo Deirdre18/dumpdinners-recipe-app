@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  				
+<div class="container recipe-container content-container">
+	<!-- Recipe-->
+	<section class="recipe">
+		<div class="row">
+			<div class="col s12 m6 l4">
+				<div class="page-header">
+					<h2 class="text-uppercase">RECIPE</h2> Recipe Views:{{ recipe.views }}
+					<hr class="block-divider block-divider--short">
+				</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<h3><em>{{recipe.recipe_name}}</em></h3> 
+					
+				<div row="recipe">
+					<div class="image">
+					
+						<div class="col s12 m12 l12">
+							<img src="{{ recipe.image }}" alt="" height=300 width=250> <div class="col s12 m6 l6" id="ingredients"><h3>Ingredients</h3>
+                                    {{ recipe.ingredients }} 
+                                </div>
+				</div>			
+					
+				
+							
+						<div row="recipe1">
+							<div class="main">
+								<h3 class="method" id="method1">Method</h3>
+								<div class="col s12 m12 l12" id="ingredients">
+                                    {{ recipe.methods }} 
+                                </div>
+                                <p><strong>Recipe submitted by: {{ recipe.username }} |  Date: {{recipe.date_added}}</strong></p>
+
+							
+							</div>
+						</div>
+					 </div>
+				</div>
+			</div>
+		</div>
+
+    
+ 
+   
+{% endblock %}
