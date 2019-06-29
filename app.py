@@ -1,48 +1,75 @@
 import os
 import re
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session, flash
+
 from flask_pymongo import PyMongo
 import pymongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+ 
+
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
 
+app.config["SECRET_KEY"]= os.environ.get("SECRET_KEY")
 
 
-app.config['MONGO_URI'] = os.environ.get("MONGO_URI")
-app.config['MONGO_DBNAME'] = os.environ.get("MONGO_DBNAME")
+if app.config['DEBUG'] == True:
+    from config import dbconfig
+    app.config["MONGO_DBNAME"] = 'dumpdinners'
+    app.config["MONGO_URI"] = dbconfig()
+else:
+    app.config['MONGO_URI'] = os.environ.get("MONGO_URI")
+    app.config['MONGO_DBNAME'] = os.environ.get("MONGO_DBNAME")
 
 mongo = PyMongo(app)
 
 
 
 @app.route('/')
-@app.route('/get_recipes')
-def get_recipes():
-    return render_template("recipes.html", 
+def index():
+    recipes = mongo.db.recipes.find()
+    return render_template("allrecipes.html", 
         recipes=mongo.db.recipes.find())
-    
-    
+
 @app.route('/add_recipe')
 def add_recipe():
+    recipes = mongo.db.recipes.find()
     return render_template('addrecipe.html',
-        categories=mongo.db.categories.find())
-    
+        categories=mongo.db.category.find())   
+
     
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
-    recipes =  mongo.db.recipes
+    recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('get_recipes'))
+    flash ("Your recipe has been inserted")
+    return redirect(url_for('allrecipes'))
+    
 
-#As a reminder of where this data comes from, let's go back to our app.py and look at the function. You can see in editrecipe that recipe is passed across as well as the categories. That allows us to match the category that's associated with recipe with the general list of categories. There we can see our categories are available to us, and a selected category for that recipe was displayed by default.
-@app.route('/edit_recipe/<recipe_id>')
+
+@app.route('/allrecipes')
+def allrecipes():
+    recipes = mongo.db.recipes.find()
+    return render_template('allrecipes.html', recipes=recipes)
+    
+
+
+
+@app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
-    the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    """Allows logged in user to edit their own recipes"""
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     all_categories =  mongo.db.categories.find()
-    return render_template('editrecipe.html', recipe=the_recipe, categories=all_categories)
+    if request.method == 'GET':
+        
+        return render_template('editrecipe.html', recipe=recipe_db, categories=all_categories)
+   
+
+
+
 
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
@@ -53,16 +80,20 @@ def update_recipe(recipe_id):
         'recipe_name':request.form.get('recipe_name'),
         'ingredients':request.form.get('ingredients'),
         'image': request.form.get('image'),
-        'date_added': request.form.get('date_added')
-        
+        'category_name': request.form.get('category_name'),
+        'username': request.form.get('username'),
+        'methods': request.form.get('methods'),
+        'short description': request.form.get('short_description'),
+        'date_added': request.form.get('date_added'),
+        'is_vegetarian': request.form.get('is_vegetarian'),
+        'views': request.form.get('views')
     })
-    return redirect(url_for('get_recipes'))
-
+    return redirect(url_for('allrecipes'))
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('get_recipes'))
+    return redirect(url_for('allrecipes'))
     
 @app.route('/search')
 def search():
@@ -86,10 +117,13 @@ def recipe(recipe_id):
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        {'$inc': {'views': 1}}
-    )
+        {'$inc': {'views': 1}})
+        
+   
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
+
+
 
 
 #ROUTES FOR CATEGORIES
@@ -100,6 +134,8 @@ def recipe(recipe_id):
 def get_categories():
     return render_template('categories.html',
         categories=mongo.db.categories.find())
+        
+
         
 #ADDING ROUTE FOR DELETE TASK
 
@@ -142,8 +178,48 @@ def add_category():
     
 
 
+#Copied routing for login from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
+
+
+@app.route('/login', methods=["GET","POST"])
+def login():
+    if request.method == 'POST':
+        login_user = mongo.db.register.find_one({'username': request.form['username']})
+        form = request.form
+        if login_user:
+            if(form["password"] == login_user["password"]): # if password correct
+                session['username'] = login_user["username"]
+                return redirect(url_for('allrecipes',register_id = login_user["_id"]))
+            else: # and if password is not correct
+               flash("Incorrect password") 
+        else:# if user does not exist
+            flash("User does not exist")
+            return redirect(url_for('register'))
+    return render_template('login.html')            
+    
+    
+@app.route('/register', methods=['POST','GET'])
+def register():
+    if request.method == 'POST':
+        register = mongo.db.register
+        register_id = register.insert_one(request.form.to_dict())
+        # print(register)
+        object_id = register_id.inserted_id
+        flash ("Thank you for regisering, please login!")
+        return redirect(url_for('allrecipes',register_id=object_id))
+    return render_template('register.html')
+              
+
+
+@app.route('/logout')
+def logout():
+    """Clears session and redirects to home"""
+    session.clear()
+    return redirect(url_for('allrecipes'))
+
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-        port=int(os.environ.get('PORT')),
-        debug=True)
+        port=int(os.environ.get('PORT')))

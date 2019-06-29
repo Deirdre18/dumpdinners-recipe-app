@@ -11,39 +11,61 @@
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
+    <link rel="icon" type="image/ico" href="/static/images/favicon.ico" />
+
+
 </head>
 
 <body>
+    
+
+
+
+{% if 'username' in session %}
+    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">welcome back, {{ session['username'] }}</div>
+    
+     <li class="nav-item">
+    
+    <a class="nav-link {% block nav_add_recipe %}{% endblock %}" href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </li>
+    
+    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('logout') }}">Logout</a>
+               </li>
    
-       <nav>
+    
+   
+    
+   
+{% else %}
+    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">please <a href="{{ url_for('login') }}">login</a>
+        or <a href="{{ url_for('register') }}">register</a>.
+    </div>
+{% endif %}
+
+<nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('get_recipes')}}" class="brand-logo">DumpDinners</a>
+                <a class="brand-logo">DumpDinners</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     
-                    <li><a href="{{url_for('get_recipes')}}">Home</a></li>
-                    <li><a href="{{url_for('add_recipe')}}">Add your Dump</a></li>
-                  
-                     <li><a href="">Login / Register<li></a>
-                     <li><a href="">Logout</a></li>
-                     
-                     <li><a href="{{url_for('search')}}"><i class="material-icons">search</i></a></li></a></li>
-                   
-                   
-                </ul>
-                
-                <ul class="side-nav" id="mobile-demo">
-                  
-                    <li><a href="{{url_for('get_recipes')}}">Home</a></li>
-                    <li><a href="{{url_for('add_recipe')}}">Add your Dump</a></li>
+                    {% if 'username' not in session %}
                     
-                     <li><a href="">Login / Register<li></a>
-                     <li><a href="">Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block nav_index %}{% endblock %}" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    
+                    <li><a href=""><i class="material-icons">search</i></a></li></a>
+                    </li>
                      
-                    <li><a href=""><i class="material-icons">search</i></a></li></a></li>
+                   
+                    
+               
+               
+                {% endif %}
+                
                 </ul>
-        </div>
-  </nav>
+        </nav>        
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -83,17 +105,13 @@
     </div>   
     
        
-    
-        <!--<h1>Outside!</h1>-->
-        {% block content %}
-        {% endblock %}
-        
-         
+      {% block content %}{% endblock %}
        
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-       
         
+ 
+      
         <script type="text/javascript">
             /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
             $(document).ready(function() {
@@ -115,10 +133,16 @@
         
        
     </script>
-  
     
+    <!-- jquery to activate buttons -->
     
- 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+        });
+    </script>
+
+   
    </body>
-</html>
 </html>
