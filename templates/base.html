@@ -84,13 +84,18 @@
           <br>
           <br>
           <br>
-           <div class="search text right">
-            <form action="{{ url_for('search') }}">
+           < <div class="row">
+            <div class="search text right">
+            <form class="submit" name="query" action={{ url_for('search') }}">
                
-                <input type="submit" name="query" class="btn btn-primary" value="Search Recipes!"/>
-                
-            </form>
-           </div>
+                    <input class="submit" type="text" name="query"/>
+                    <div class="input-submit">
+                        <button class="btn btn-primary" type="submit">Find Recipes!</button>
+                    </div>
+                </form>
+            </div>
+         
+        </div>
            
          
         <img src="
