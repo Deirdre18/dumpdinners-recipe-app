@@ -1,8 +1,9 @@
 import os
 import re
+
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, DESCENDING
 import pymongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -28,11 +29,22 @@ mongo = PyMongo(app)
 
 
 
+ 
+# @app.route('/')
+# @app.route('/index')
+# def index():
+#     """Home page the gets 4 recipes from DB that have been viewed the most"""
+#     four_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(4)
+#     return render_template('allrecipes.html', title="Home", recipes=four_recipes)
+
+
+
 @app.route('/')
 def index():
     recipes = mongo.db.recipes.find()
     return render_template("allrecipes.html", 
         recipes=mongo.db.recipes.find())
+        
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -44,11 +56,22 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
+    recipes.insert_one({
+    'recipe_name':request.form.get('recipe_name'),
+    'ingredients':request.form.get('ingredients'),
+    'image': request.form.get('image'),
+    'category_name': request.form.get('category_name'),
+    'username': request.form.get('username'),
+    'methods': request.form.get('methods'),
+    'short description': request.form.get('short_description'),
+    'date_added': request.form.get('date_added'),
+    'is_vegetarian': request.form.get('is_vegetarian'),
+    'views': 1
+        
+    })
     flash ("Your recipe has been inserted")
     return redirect(url_for('allrecipes'))
     
-
 
 @app.route('/allrecipes')
 def allrecipes():
@@ -71,12 +94,14 @@ def edit_recipe(recipe_id):
 
 
 
-
+# referred to this article for advice on 'views' - https://stackoverflow.com/questions/5782311/mongodb-inc-embedded-value-syntax
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
+        '$set': {
+            
         'recipe_name':request.form.get('recipe_name'),
         'ingredients':request.form.get('ingredients'),
         'image': request.form.get('image'),
@@ -86,7 +111,9 @@ def update_recipe(recipe_id):
         'short description': request.form.get('short_description'),
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
-        'views': request.form.get('views')
+        'views': 1
+        
+        }
     })
     return redirect(url_for('allrecipes'))
 
@@ -94,22 +121,23 @@ def update_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes'))
-    
+
+
+# https://www.tutorialspoint.com/python/python_reg_expressions.htm    
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
-    orig_search = request.args['search']
+    orig_query = request.args['query']
     # using regular expression setting option for any case
-    search = {'$regex': re.compile('.*{}.*'.format(orig_search)), '$options': 'i'}
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
     # find instances of the entered word in title, tags or ingredients
     results = mongo.db.recipes.find({
         '$or': [
-            {'title': search},
-            {'tags': search},
-            {'ingredients': search},
+            {'title': query},
+            {'ingredients': query},
         ]
     })
-    return render_template('search.html', search=orig_search, results=results)
+    return render_template('search.html', query=orig_query, results=results)
 
 
 @app.route('/recipe/<recipe_id>')
