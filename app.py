@@ -91,8 +91,23 @@ def edit_recipe(recipe_id):
         return render_template('editrecipe.html', recipe=recipe_db, categories=all_categories)
    
 
+@app.route('/search')
+def search():
+    """Provides logic for search bar"""
+    orig_query = request.args['query']
+    # using regular expression setting option for any case
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
+    # find instances of the entered word in title, tags or ingredients
+    results = mongo.db.recipes.find({
+        '$or': [
+            {'recipe_name': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    })
+    return render_template('search.html', query=orig_query, results=results)
 
-
+    
 
 # referred to this article for advice on 'views' - https://stackoverflow.com/questions/5782311/mongodb-inc-embedded-value-syntax
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
@@ -123,21 +138,6 @@ def delete_recipe(recipe_id):
     return redirect(url_for('allrecipes'))
 
 
-# https://www.tutorialspoint.com/python/python_reg_expressions.htm    
-@app.route('/search')
-def search():
-    """Provides logic for search bar"""
-    orig_query = request.args['query']
-    # using regular expression setting option for any case
-    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in title, tags or ingredients
-    results = mongo.db.recipes.find({
-        '$or': [
-            {'title': query},
-            {'ingredients': query},
-        ]
-    })
-    return render_template('search.html', query=orig_query, results=results)
 
 
 @app.route('/recipe/<recipe_id>')

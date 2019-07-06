@@ -38,7 +38,7 @@
     
    
 {% else %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">please <a href="{{ url_for('login') }}">login</a>
+    <div id="login">please <a href="{{ url_for('login') }}">login</a>
         or <a href="{{ url_for('register') }}">register</a>.
     </div>
 {% endif %}
@@ -84,23 +84,19 @@
           <br>
           <br>
           <br>
-           < <div class="row">
-            <div class="search text right">
-            <form class="submit" name="query" action={{ url_for('search') }}">
-               
-                    <input class="submit" type="text" name="query"/>
-                    <div class="input-submit">
+       <div class="row">
+            <div class="col-lg-4">
+                <form class="input-group mb-3" action="{{ url_for('search') }}">
+                    <input class="form-control" type="text" name="query"/>
+                    <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">Find Recipes!</button>
                     </div>
                 </form>
             </div>
-         
         </div>
-           
-         
         <img src="
-    {{ url_for('static', filename='uploads/' + 'still-life.jpg') }}"> </div>
-           
+    {{ url_for('static', filename='uploads/' + 'still-life.jpg') }}">
+        
         
         </div>
     </div>
@@ -147,7 +143,6 @@
             $('select').material_select();
         });
     </script>
-
    
    </body>
 </html>
