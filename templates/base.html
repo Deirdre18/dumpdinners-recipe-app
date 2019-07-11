@@ -4,118 +4,201 @@
 <head>
     <!--referred to this link for downloading bootstrap, as well as previous CI tutorials - https://forums.fedoraforum.org/showthread.php?314148-How-to-download-bootstrap-->
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }} - DumpDinners</title>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
-    <link rel="icon" type="image/ico" href="/static/images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        /*referred to https://www.w3schools.com/howto/howto_css_search_button.asp*/
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form.example input[type=text] {
+            padding: 5px;
+            font-size: 12px;
+            border: 1px solid grey;
+            float: left;
+            width: 3%;
+            height: 1%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            float: left;
+            width: 3%;
+            height: 2%;
+            padding: 5px;
+            background: #2196F3;
+            color: white;
+            font-size: 12px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 
 </head>
 
 <body>
-    
 
 
 
-{% if 'username' in session %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">welcome back, {{ session['username'] }}</div>
-    
-     <li class="nav-item">
-    
-    <a class="nav-link {% block nav_add_recipe %}{% endblock %}" href="{{ url_for('add_recipe') }}">Add Recipe</a>
+
+    {% if 'username' in session %}
+    <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center">welcome back, {{ session['username'] }}</div>
+
+    <li class="nav-item" style="text-align:center">
+
+        <a class="nav-link {% block nav_add_recipe %}{% endblock %}" style="text-align:center" href="{{ url_for('add_recipe') }}">Add Recipe</a>
     </li>
-    
-    <li class="nav-item">
-                        <a class="nav-link " href="{{ url_for('logout') }}">Logout</a>
-               </li>
-   
-    
-   
-    
-   
-{% else %}
-    <div id="login">please <a href="{{ url_for('login') }}">login</a>
-        or <a href="{{ url_for('register') }}">register</a>.
-    </div>
-{% endif %}
 
-<nav>
-            <div class="nav-wrapper">
-                <a class="brand-logo">DumpDinners</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    
-                    {% if 'username' not in session %}
-                    
-                    <li class="nav-item">
-                        <a class="nav-link {% block nav_index %}{% endblock %}" href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    
-                    <li><a class="nav-link {% block nav_search %}{% endblock %}" href="{{ url_for('search') }}">Search</a>
-                    </li>
-                     
-                   
-                    
-               
-               
+    <li class="nav-item" style="text-align:center">
+        <a class="nav-link " href="{{ url_for('logout') }}">Logout</a>
+    </li>
+
+
+
+
+
+    {% else %}
+    <div class="login" style="text-align:center">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>.
+    </div>
+    {% endif %}
+
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo">DumpDinners</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                {% if 'username' not in session %}
+
+                <li class="nav-item">
+                    <a class="nav-link {% block nav_index %}{% endblock %}" href="{{ url_for('index') }}">Home</a>
+                </li>
+
+                <li><a class="nav-link {% block nav_search %}{% endblock %}" href="{{ url_for('search') }}">Search</a>
+                </li>
+
+
+
+
+
                 {% endif %}
-                
+
+
+                <nav>
+                    <div class="nav-wrapper">
+                        <a class="brand-logo">DumpDinners</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                            {% if 'username' not in session %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                            </li>
+
+                            <!--<li class="nav-item">-->
+                            <!--    <form class="example" action="{{ url_for('search') }}">-->
+                            <!--        <input type="text" placeholder="Search recipes.." required name="query" style="margin-top:8%; margin-bottom:4%; width:40%; height:3em !important; color: black">-->
+                            <!--        <div id="search">-->
+                            <!--            <button type="submit"style="margin-top:8%; margin-bottom:4%; width:40%; height:4em !important;" ><i class="fa fa-search">Search</i></button>-->
+                            <!--        </div>-->
+                            <!--    </form>-->
+                            <!--</li>-->
+                            {% endif %}
+
+                        </ul>
+                    </div>
+
+                </nav>
+                <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
+                <ul class="sidenav" id="mobile-demo">
+                    <li class="nav-item">
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+
+                    <!--<li class="nav-item">-->
+                    <!--    <form class="example" action="{{ url_for('search') }}">-->
+                    <!--        <input type="text" placeholder="Search recipes.."required name="query">-->
+
+                    <!--        <button type="submit"><i class="fa fa-search"></i></button>-->
+
+                    <!--    </form>-->
+                    <!--</li>-->
+
+
                 </ul>
-        </nav>        
+    </nav>
+
+
+
+
+
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
-          <div class="container">
-       
-        <div class="parallax">
-            <img src="{{ url_for('static', filename='uploads/' + 'still-life.jpg') }}"> 
-        </div>    
-       
-        <h2 class="header center dark-blue-text text-darken-4" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
-        
-         <h1 class="header center dark-blue-text text-darken-4" class="header"><small>Get Dumping</small></h1>
-        
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-       <div class="row">
-            <div class="col-lg-4">
-                <form class="input-group mb-3" action="{{ url_for('search') }}">
-                    <input class="form-control" type="text" name="query"/>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Find Recipes!</button>
-                    </div>
-                </form>
+            <div class="container">
+
+                <div class="parallax">
+                    <img src="{{ url_for('static', filename='uploads/' + 'still-life.jpg') }}">
+                </div>
+
+                <h2 class="header center dark-blue-text text-darken-4" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
+
+                <h1 class="header center dark-blue-text text-darken-4" class="header"><small>Get Dumping</small></h1>
+
+                <br <br>
+                <li class="nav-item">
+                    <form class="example" action="{{ url_for('search') }}">
+                        <input type="text" placeholder="Search recipes.." required name="query" style="margin-top:10%; width:40%; height:3em !important; color: black">
+                        <div id="search">
+                            <button type="submit" style="margin-top:10%; width:40%; height:4em !important"><i class="fa fa-search">Search</i></button>
+                        </div>
+                    </form>
+                </li>
+
+
+
             </div>
         </div>
-        <img src="
-    {{ url_for('static', filename='uploads/' + 'still-life.jpg') }}">
-        
-        
-        </div>
+        <!--Referred to this link for adding photos dynamically. https://stackoverflow.com/questions/40877272/jinja2-not-displaying-the-images-->
+        <!--https://www.google.com/search?rlz=1C1AWFA_enIE805IE805&biw=1024&bih=657&tbm=isch&sa=1&ei=ay5fXOW8EvXgxgOgrr_oCQ&q=background+images+for+recipes&oq=images+for+recipes&gs_l=img.1.1.0j0i7i30.32364.34043..38749...0.0..1.197.709.7j2......0....1..gws-wiz-img.SBFt-lnnmWs#imgdii=Dd45noBQDgm7GM:&imgrc=krIJKEtBV66GdM:-->
+
     </div>
-    <!--Referred to this link for adding photos dynamically. https://stackoverflow.com/questions/40877272/jinja2-not-displaying-the-images-->
-    <!--https://www.google.com/search?rlz=1C1AWFA_enIE805IE805&biw=1024&bih=657&tbm=isch&sa=1&ei=ay5fXOW8EvXgxgOgrr_oCQ&q=background+images+for+recipes&oq=images+for+recipes&gs_l=img.1.1.0j0i7i30.32364.34043..38749...0.0..1.197.709.7j2......0....1..gws-wiz-img.SBFt-lnnmWs#imgdii=Dd45noBQDgm7GM:&imgrc=krIJKEtBV66GdM:-->
-    
-    </div>   
-    
-       
-      {% block content %}{% endblock %}
-       
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        
- 
-      
-        <script type="text/javascript">
-            /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
-            $(document).ready(function() {
+
+
+    {% block content %}{% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
+        $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
         });
@@ -127,22 +210,22 @@
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
         });
-        
-         $(document).ready(function(){
-        $('.parallax').parallax();
+
+        $(document).ready(function() {
+            $('.parallax').parallax();
         });
-        
-       
     </script>
-    
+
     <!-- jquery to activate buttons -->
-    
+
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
         });
     </script>
-   
-   </body>
+
+
+</body>
+
 </html>

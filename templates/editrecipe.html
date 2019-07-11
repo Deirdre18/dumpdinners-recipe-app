@@ -18,19 +18,20 @@
 
 
 <div class="row">
-    
-    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
+  
+        <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
                 <select id="category" name="category_name">
                   <option value="" disabled selected>Choose Category</option>
-                      {% if categories.category_name == recipe.category_name%}
-                      <option value="{{categories.category_name}}" selected >{{categories.category_name}}</option>
+                  {% for cat in categories %}
+                      {% if cat.category_name == recipe.category_name%}
+                      <option value="{{cat.category_name}}" selected >{{cat.category_name}}</option>
                       {% else %}
-                       <option value="{{categories.category_name}}">{{categories.category_name}}</option>
+                       <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                     {% endif %}
-                 
+                  {% endfor %}
                 </select>
                 <label>Recipe Category</label>
             </div>
@@ -44,16 +45,31 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="short_description" name="short_description" type="text" class="validate" value="{{recipe.short_description}}">
+                <label for="icon_prefix">Short Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <textarea name="ingredients" id="ingredients" class="materialize-textarea">{{recipe.ingredients}}</textarea>
                 <label for="icon_prefix">Ingredients</label>
             </div>
         </div>
         
+        
+         <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="methods" id="methods" class="materialize-textarea">{{recipe.methods}}</textarea>
+                <label for="icon_prefix">Methods</label>
+            </div>
+        </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">photo</i>
-                <textarea name=<img src="{{image}}" class="materialize-textarea">{{recipe.image}}</textarea>
+                <textarea name="image" id="image" class="materialize-textarea">{{recipe.image}}</textarea>
                 <label for="icon_prefix">Photo</label>
             </div>
         </div>
@@ -62,7 +78,7 @@
          <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">touch_app</i>
-                <textarea name="username" id="username" class="materialize-textarea"></textarea>
+                <textarea name="username" id="username" class="materialize-textarea">{{recipe.username}}</textarea>
                 <label for="username">Username</label>
             </div>
         </div>
@@ -71,7 +87,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
                 <input id="date_added" name="date_added" type="text" class="datepicker">
-                <label for="icon_prefix">Date Added</label>
+                <label for="icon_prefix">Date Added{{recipe.date_added}}</label>
             </div>
         </div>
         <div class="row">

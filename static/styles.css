@@ -4,11 +4,12 @@
     left: auto;
     right: auto;
     white-space: pre-wrap;
-    
-  
 }
-
-#login {text-align: center;} 
+#search [type="search"] [name="query"]
+{
+     height: 30px;
+     width: 50px;
+}
 
 #recipe-cards {height:100%;}
    
@@ -25,11 +26,11 @@ h3 {margin-top: 10%}
 
 
 
-#ingredients { white-space: pre-wrap;
+.ingredients { white-space: pre-wrap;
                 margin-top: 20px;
     
 }
-#method { white-space: pre-wrap;
+#methods { white-space: pre-wrap;
           margin-top: 20px;
     
     
@@ -75,4 +76,6 @@ p {  margin-top: 20%;}
     margin-top: 5px;
    
 }
+
+
 

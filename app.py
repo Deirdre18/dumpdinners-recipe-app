@@ -1,9 +1,8 @@
 import os
 import re
-
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 
-from flask_pymongo import PyMongo, DESCENDING
+from flask_pymongo import PyMongo
 import pymongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -14,7 +13,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"]= os.environ.get("SECRET_KEY")
+app.secret_key = "randomstring123"
+
 
 
 if app.config['DEBUG'] == True:
@@ -29,22 +29,11 @@ mongo = PyMongo(app)
 
 
 
- 
-# @app.route('/')
-# @app.route('/index')
-# def index():
-#     """Home page the gets 4 recipes from DB that have been viewed the most"""
-#     four_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(4)
-#     return render_template('allrecipes.html', title="Home", recipes=four_recipes)
-
-
-
 @app.route('/')
 def index():
     recipes = mongo.db.recipes.find()
     return render_template("allrecipes.html", 
         recipes=mongo.db.recipes.find())
-        
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -56,22 +45,11 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    recipes.insert_one({
-    'recipe_name':request.form.get('recipe_name'),
-    'ingredients':request.form.get('ingredients'),
-    'image': request.form.get('image'),
-    'category_name': request.form.get('category_name'),
-    'username': request.form.get('username'),
-    'methods': request.form.get('methods'),
-    'short description': request.form.get('short_description'),
-    'date_added': request.form.get('date_added'),
-    'is_vegetarian': request.form.get('is_vegetarian'),
-    'views': 1
-        
-    })
+    recipes.insert_one(request.form.to_dict())
     flash ("Your recipe has been inserted")
     return redirect(url_for('allrecipes'))
     
+
 
 @app.route('/allrecipes')
 def allrecipes():
@@ -81,6 +59,14 @@ def allrecipes():
 
 
 
+#@app.route("/edit_recipe/<recipe_id>/<username>")
+#def edit_recipe(recipe_id, username):
+ #   user = mongo.db.users.find_one({"user": users})
+  #  recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+   # return render_template('editrecipe.html', recipes=recipe, username=username)
+    
+
+        
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     """Allows logged in user to edit their own recipes"""
@@ -91,6 +77,37 @@ def edit_recipe(recipe_id):
         return render_template('editrecipe.html', recipe=recipe_db, categories=all_categories)
    
 
+    
+
+
+# referred to this article for advice on 'views' - https://stackoverflow.com/questions/5782311/mongodb-inc-embedded-value-syntax
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        '$set': {
+            
+        'recipe_name':request.form.get('recipe_name'),
+        'ingredients':request.form.get('ingredients'),
+        'image': request.form.get('image'),
+        'category_name': request.form.get('category_name'),
+        'username': request.form.get('username'),
+        'methods': request.form.get('methods'),
+        'short_description': request.form.get('short_description'),
+        'date_added': request.form.get('date_added'),
+        'is_vegetarian': request.form.get('is_vegetarian'),
+        'views': 1
+        
+        }
+    })
+    return redirect(url_for('allrecipes'))
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('allrecipes'))
+    
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
@@ -107,47 +124,14 @@ def search():
     })
     return render_template('search.html', query=orig_query, results=results)
 
-    
-
-# referred to this article for advice on 'views' - https://stackoverflow.com/questions/5782311/mongodb-inc-embedded-value-syntax
-@app.route('/update_recipe/<recipe_id>', methods=["POST"])
-def update_recipe(recipe_id):
-    recipes = mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipe_id)},
-    {
-        '$set': {
-            
-        'recipe_name':request.form.get('recipe_name'),
-        'ingredients':request.form.get('ingredients'),
-        'image': request.form.get('image'),
-        'category_name': request.form.get('category_name'),
-        'username': request.form.get('username'),
-        'methods': request.form.get('methods'),
-        'short description': request.form.get('short_description'),
-        'date_added': request.form.get('date_added'),
-        'is_vegetarian': request.form.get('is_vegetarian'),
-        'views': 1
-        
-        }
-    })
-    return redirect(url_for('allrecipes'))
-
-@app.route('/delete_recipe/<recipe_id>')
-def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('allrecipes'))
-
-
-
 
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        {'$inc': {'views': 1}})
-        
-   
+        {'$inc': {'views': 1}}
+    )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
 
@@ -226,6 +210,8 @@ def login():
     return render_template('login.html')            
     
     
+#Copied routing for register from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
+
 @app.route('/register', methods=['POST','GET'])
 def register():
     if request.method == 'POST':
@@ -233,10 +219,14 @@ def register():
         register_id = register.insert_one(request.form.to_dict())
         # print(register)
         object_id = register_id.inserted_id
-        flash ("Thank you for regisering, please login!")
         return redirect(url_for('allrecipes',register_id=object_id))
     return render_template('register.html')
               
+    
+
+ 
+#Copied routing for allrecipeslist from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
+
 
 
 @app.route('/logout')
