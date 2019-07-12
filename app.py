@@ -56,16 +56,6 @@ def allrecipes():
     recipes = mongo.db.recipes.find()
     return render_template('allrecipes.html', recipes=recipes)
     
-
-
-
-#@app.route("/edit_recipe/<recipe_id>/<username>")
-#def edit_recipe(recipe_id, username):
- #   user = mongo.db.users.find_one({"user": users})
-  #  recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-   # return render_template('editrecipe.html', recipes=recipe, username=username)
-    
-
         
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):

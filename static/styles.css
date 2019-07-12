@@ -26,15 +26,6 @@ h3 {margin-top: 10%}
 
 
 
-.ingredients { white-space: pre-wrap;
-                margin-top: 20px;
-    
-}
-#methods { white-space: pre-wrap;
-          margin-top: 20px;
-    
-    
-}
 
 p .heading {margin-top: 30%;}
 
@@ -44,14 +35,13 @@ p .heading {margin-top: 30%;}
 }
 
 
-
-
 h1 {text-align: center;
     margin-top: 20px;
     
 }
 
-p {  margin-top: 20%;}
+p {margin-top: 20%;}
+
 
 
 .nav-wrapper {background-color: blue;}

@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
+    <link rel="icon" type="image/ico" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  
     <style>
         body {
             font-family: Arial;
@@ -28,7 +29,7 @@
             font-size: 12px;
             border: 1px solid grey;
             float: left;
-            width: 3%;
+            width: 4%;
             height: 1%;
             background: #f1f1f1;
         }
@@ -56,16 +57,14 @@
             display: table;
         }
     </style>
-
+  
+  
 </head>
 
 <body>
 
-
-
-
     {% if 'username' in session %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center">welcome back, {{ session['username'] }}</div>
+    <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center;color:orangered;text-decoration:underline">welcome back, {{ session['username'] }}</div>
 
     <li class="nav-item" style="text-align:center">
 
@@ -81,81 +80,39 @@
 
 
     {% else %}
-    <div class="login" style="text-align:center">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>.
+    <div class="login" style="text-align:center;color:orangered;text-decoration:underline">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>
     </div>
     {% endif %}
 
     <nav>
         <div class="nav-wrapper">
-            <a class="brand-logo">DumpDinners</a>
+            <a class="brand-logo" style="color:orangered">DumpDinners</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
                 {% if 'username' not in session %}
 
-                <li class="nav-item">
-                    <a class="nav-link {% block nav_index %}{% endblock %}" href="{{ url_for('index') }}">Home</a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ url_for('index') }}"style="color:orangered;text-decoration:underline"><strong>Home</a></strong>
+            </li>
 
-                <li><a class="nav-link {% block nav_search %}{% endblock %}" href="{{ url_for('search') }}">Search</a>
-                </li>
-
-
-
-
-
+               
                 {% endif %}
 
+            </ul>
+        </div>
 
-                <nav>
-                    <div class="nav-wrapper">
-                        <a class="brand-logo">DumpDinners</a>
-                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-                            {% if 'username' not in session %}
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-                            </li>
-
-                            <!--<li class="nav-item">-->
-                            <!--    <form class="example" action="{{ url_for('search') }}">-->
-                            <!--        <input type="text" placeholder="Search recipes.." required name="query" style="margin-top:8%; margin-bottom:4%; width:40%; height:3em !important; color: black">-->
-                            <!--        <div id="search">-->
-                            <!--            <button type="submit"style="margin-top:8%; margin-bottom:4%; width:40%; height:4em !important;" ><i class="fa fa-search">Search</i></button>-->
-                            <!--        </div>-->
-                            <!--    </form>-->
-                            <!--</li>-->
-                            {% endif %}
-
-                        </ul>
-                    </div>
-
-                </nav>
-                <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
-                <ul class="sidenav" id="mobile-demo">
-                    <li class="nav-item">
-                        <a href="{{ url_for('index') }}">Home</a>
-                    </li>
-
-                    <!--<li class="nav-item">-->
-                    <!--    <form class="example" action="{{ url_for('search') }}">-->
-                    <!--        <input type="text" placeholder="Search recipes.."required name="query">-->
-
-                    <!--        <button type="submit"><i class="fa fa-search"></i></button>-->
-
-                    <!--    </form>-->
-                    <!--</li>-->
-
-
-                </ul>
     </nav>
+    <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
+    <ul class="sidenav" id="mobile-demo">
+        <li class="nav-item">
+            <a href="{{ url_for('index') }}"style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
+        </li>
 
 
-
-
-
+       
+    </ul>
+   
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -174,7 +131,7 @@
                     <form class="example" action="{{ url_for('search') }}">
                         <input type="text" placeholder="Search recipes.." required name="query" style="margin-top:10%; width:40%; height:3em !important; color: black">
                         <div id="search">
-                            <button type="submit" style="margin-top:10%; width:40%; height:4em !important"><i class="fa fa-search">Search</i></button>
+                            <button type="submit" style="margin-top:10%; width:40%; height:4em !important; background-color:orangered"><i class="fa fa-search">Search</i></button>
                         </div>
                     </form>
                 </li>
@@ -224,8 +181,32 @@
             $('select').material_select();
         });
     </script>
+    
+<!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer    -->
+
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: blue;
+   color: white;
+   text-align: center;
+   height: 7%;
+}
+</style>
+ 
+<div class="footer">
+    <div class="container">
+        © 2019 Copyright DumpDinners.com
+        <a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered">Visit our Website</a><br>
+       <i class="fa fa-facebook" aria-hidden="true">&nbsp<a href="https://www.facebook.com/" style="color:orangered">Find us on Facebook</a></i>
+       <i class="fa fa-twitter" aria-hidden="true">&nbsp<a href="https://www.twitter.com/" style="color:orangered">Tweet DumpDinners</a></i>
+       <i class="fa fa-instagram" aria-hidden="true">&nbsp<a href="https://www.instagram.com/" style="color:orangered">See our photos on Instagram</a></i>
+    </div>
+</div>
 
 
 </body>
-
 </html>
