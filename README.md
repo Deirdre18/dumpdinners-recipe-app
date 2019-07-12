@@ -5,3 +5,4 @@ Commands used to install dependencies:-
 - installing flask: pip install flask/pip3 install flask
 - upgrading pip:sudo pip install --upgrade pip
 - installing flask_pymongo: pip install flask_pymongo --user/pip3 install flask_pymongo --user
+- pip install flask_pymongo --user

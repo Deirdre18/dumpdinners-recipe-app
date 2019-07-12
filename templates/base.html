@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
     <link rel="icon" type="image/ico" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
     <style>
         body {
             font-family: Arial;
@@ -57,75 +57,71 @@
             display: table;
         }
     </style>
-  
-  
+
+
 </head>
 
 <body>
-    
-    <style scoped>.pattern {
-    min-height: 100px;
-}
 
-#stripes4 {
+    <style scoped>
+        .pattern {
+            min-height: 100px;
+        }
 
-    background-image: repeating-linear-gradient(45deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px, orangered);
+        #stripes4 {
 
-}
+            background-image: repeating-linear-gradient(45deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px, orangered);
 
-</style>
+        }
+    </style>
 
-<div id="stripes4" class="pattern">
+    <div id="stripes4" class="pattern">
 
-    {% if 'username' in session %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center;color:orangered;text-decoration:underline">welcome back, {{ session['username'] }}</div>
+        {% if 'username' in session %}
+        <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:orangered">welcome back, {{ session['username'] }}</div>
 
-    <li class="nav-item">
-
-        <a class="nav-link {% block nav_add_recipe %}{% endblock %}" style="text-align:center" href="{{ url_for('add_recipe') }}">Add Recipe</a>
-    </li>
-
-    <li class="nav-item" style="text-align:center">
-        <a class="nav-link " href="{{ url_for('logout') }}">Logout</a>
-    </li>
-
-
-
-
-
-    {% else %}
-    <div class="login" style="text-align:center;color:orangered;text-decoration:underline">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>
-    </div>
-    {% endif %}
-
-    <nav>
-        <div class="nav-wrapper">
-            <a class="brand-logo" style="color:orangered">DumpDinners</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-                {% if 'username' not in session %}
-
-            <li class="nav-item">
-                <a href="{{ url_for('index') }}"style="color:orangered;text-decoration:underline"><strong>Home</a></strong>
-            </li>
-
-               
-                {% endif %}
-
-            </ul>
-        </div>
-
-    </nav>
-    <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
-    <ul class="sidenav" id="mobile-demo">
-        <li class="nav-item">
-            <a href="{{ url_for('index') }}"style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
+        <li class="nav-item" style="text-align:center">
+            <a href="{{ url_for( 'add_recipe') }}" style="text-decoration:underline">Add Recipe</a>
         </li>
 
+        <li class="nav-item" style="text-align:center">
+            <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
+        </li>
 
-       
-    </ul>
+        {% else %}
+        
+        <div class="login" style="text-align:center;color:orangered;text-decoration:underline">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>
+        </div>
+        {% endif %}
+
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo" style="color:orangered">DumpDinners</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                    {% if 'username' not in session %}
+
+                    <li class="nav-item">
+                        <a href="{{ url_for('index') }}" style="color:orangered;text-decoration:underline"><strong>Home</a></strong>
+                    </li>
+
+
+                    {% endif %}
+
+                </ul>
+            </div>
+
+        </nav>
+        <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
+        <ul class="sidenav" id="mobile-demo">
+            <li class="nav-item">
+                <a href="{{ url_for('index') }}" style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
+            </li>
+
+
+
+        </ul>
     </div>
 
     <div id="index-banner" class="parallax-container">
@@ -159,9 +155,9 @@
 
     </div>
 
-<div id="stripes4" class="pattern">
-    {% block content %}{% endblock %}
- </div>
+    <div id="stripes4" class="pattern">
+        {% block content %}{% endblock %}
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
@@ -195,32 +191,34 @@
             $('select').material_select();
         });
     </script>
-    
-<!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer    -->
 
-<style>
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: blue;
-   color: white;
-   text-align: center;
-   height: 7%;
-}
-</style>
- 
-<div class="footer">
-    <div class="container">
-        © 2019 Copyright DumpDinners.com
-        <a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered">Visit our Website</a><br>
-       <i class="fa fa-facebook" aria-hidden="true">&nbsp<a href="https://www.facebook.com/" style="color:orangered">Find us on Facebook</a></i>
-       <i class="fa fa-twitter" aria-hidden="true">&nbsp<a href="https://www.twitter.com/" style="color:orangered">Tweet DumpDinners</a></i>
-       <i class="fa fa-instagram" aria-hidden="true">&nbsp<a href="https://www.instagram.com/" style="color:orangered">See our photos on Instagram</a></i>
+    <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer    -->
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            height: 7%;
+        }
+    </style>
+
+    <div class="footer">
+        <div class="container">
+            © 2019 Copyright DumpDinners.com
+            <a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered">Visit our Website</a><br>
+
+            <i class="fa fa-facebook-square" aria-hidden="true">&nbsp<a href="https://www.facebook.com/" style="color:orangered">Find us on Facebook</a></i>
+            <i class="fa fa-twitter-square" aria-hidden="true">&nbsp<a href="https://www.twitter.com/" style="color:orangered">Tweet DumpDinners</a></i>
+            <i class="fa fa-instagram" aria-hidden="true">&nbsp<a href="https://www.instagram.com/" style="color:orangered">See our photos on Instagram</a></i>
+        </div>
     </div>
-</div>
 
 
 </body>
+
 </html>
