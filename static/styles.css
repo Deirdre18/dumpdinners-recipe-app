@@ -5,19 +5,14 @@
     right: auto;
     white-space: pre-wrap;
 }
+
 #search [type="search"] [name="query"]
 {
      height: 30px;
      width: 50px;
 }
 
-#recipe-cards {height:100%;}
-   
-   
-#dashboard2 {text-align: center;}    
 
-#dashboard4 {text-align: center;}  
-   
 h3 {margin-top: 10%}   
    
 .main { margin-top: 20px;}
@@ -62,10 +57,6 @@ p {margin-top: 20%;}
     padding: 0 0.5em;
 }
 
-.task_header {
-    margin-top: 5px;
-   
-}
 
 
 

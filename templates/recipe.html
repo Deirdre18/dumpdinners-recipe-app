@@ -54,7 +54,12 @@
 
 						<br>
 						<br>
-						<p><strong>Recipe submitted by:{{ recipe.username }} |  Date: {{recipe.date_added}}</strong></p>
+						<p><em><strong>Recipe submitted by:</em><strong>{{ recipe.username }} |  <strong><em>Date:</strong></em> {{recipe.date_added}}</p>
+
+						<header class='header text-left'>
+						<h6><strong>Rate this Recipe</strong></h6>
+						</header>
+
 
 						<!-- button for edit recipe -->
 
@@ -80,10 +85,9 @@
 
 <!--Used this website for information on how to create ratings - https://www.learningjquery.com/2016/09/15-jquery-rating-plugins and also github repository from https://github.com/nfort/jquery.thumbs.js-->
 
-<header class='header text-left'>
 
-	<h4><strong>Rate this Recipe</strong></h4>
-</header>
+
+	
 
 
 {% endblock %}
