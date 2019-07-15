@@ -15,66 +15,61 @@
 			<div class="col s12 m12 l12">
 				<div class="page-header">
 					<h2 class="text-uppercase">RECIPE</h2> Recipe Views:{{ recipe.views }}
-					
-						<header class='header text-left'>
-							<h6><strong>Rate this Recipe</strong></h6>
-						</header>
-						
+
+					<header class='header text-left'>
+						<h6><strong>Rate this Recipe</strong></h6>
+					</header>
+
 					<hr class="block-divider block-divider--short">
 				</div>
 			</div>
 		</div>
 
 		<div class="row" style="text-align:center"></div>
-			<h3><em>{{recipe.recipe_name}}</em></h3>
+		<h3><em>{{recipe.recipe_name}}</em></h3>
 
-			<div row="recipe">
+		<div row="recipe">
 
-				<div class="col s12 m12 l12">
-					<img src="{{ recipe.image }}" alt="image" height=300 width=250>
+			<div class="col s12 m12 l12">
+				<img src="{{ recipe.image }}" alt="image" height=300 width=250>
 
-					<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
+				<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
 
-					<div class="ingredients col s12 m6 l6" style="white-space:normal">
-						<h3>Ingredients</h3>
+				<div class="ingredients col s12 m6 l6" style="white-space:normal">
+					<h3>Ingredients</h3>
 
-						{{ recipe.ingredients }}
-					</div>
+					{{ recipe.ingredients }}
+				</div>
 
-					<div class="methods col s12 m6 l6" style="white-space:normal">
-							<h3>Methods</h3>
+				<div class="methods col s12 m6 l6" style="white-space:normal">
+					<h3>Methods</h3>
 
-							{{ recipe.methods }}
-
-					</div>
-					
+					{{ recipe.methods }}
 
 				</div>
+
+				<p><em><strong>Submitted by:</em><strong>{{ recipe.username }} |  <strong><em>Date:</strong></em> {{recipe.date_added}}</p>
+
+
+
+
 			</div>
-
 		</div>
 
+</div>
 
 
 
-
-		<br>
-		<br>
-		<p><em><strong>Recipe submitted by:</em><strong>{{ recipe.username }} |  <strong><em>Date:</strong></em> {{recipe.date_added}}</p>
-
-	
+<!-- button for edit recipe -->
 
 
-		<!-- button for edit recipe -->
-
-
-		<!--Taken from Spence Barribal's code (student Code Institute).-->
-		{% if session['username'] == recipe.username %}
-		<div class="row float-right">
-			<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-secondary mr-3" style="background-color:orangered">Edit Recipe</a><br><br>
-			<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-danger" style="background-color:orangered">Delete Recipe</a>
-		</div>
-		{% endif %}
+<!--Taken from Spence Barribal's code (student Code Institute).-->
+{% if session['username'] == recipe.username %}
+<div class="row float-right">
+	<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-secondary mr-3" style="background-color:orangered; float:right">Edit Recipe</a><br><br>
+	<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-danger" style="background-color:orangered; float: right">Delete Recipe</a>
+</div>
+{% endif %}
 
 
 
@@ -86,12 +81,6 @@
 </div>
 </div>
 </div>
-
-<!--Used this website for information on how to create ratings - https://www.learningjquery.com/2016/09/15-jquery-rating-plugins and also github repository from https://github.com/nfort/jquery.thumbs.js-->
-
-
-
-
 
 
 {% endblock %}
