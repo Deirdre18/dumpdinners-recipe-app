@@ -12,73 +12,77 @@
 	<!-- Recipe-->
 	<section class="recipe">
 		<div class="row">
-			<div class="col s12 m6 l4">
+			<div class="col s12 m12 l12">
 				<div class="page-header">
 					<h2 class="text-uppercase">RECIPE</h2> Recipe Views:{{ recipe.views }}
+					
+						<header class='header text-left'>
+							<h6><strong>Rate this Recipe</strong></h6>
+						</header>
+						
 					<hr class="block-divider block-divider--short">
 				</div>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row" style="text-align:center"></div>
 			<h3><em>{{recipe.recipe_name}}</em></h3>
 
 			<div row="recipe">
-				<div class="image">
 
-					<div class="col s12 m12 l12">
-						<img src="{{ recipe.image }}" alt="" height=300 width=250>
-								
-						<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
-					
-						<div class="ingredients col s12 m6 l6" style="white-space:normal">
-							<h3>Ingredients</h3>
+				<div class="col s12 m12 l12">
+					<img src="{{ recipe.image }}" alt="image" height=300 width=250>
 
-							{{ recipe.ingredients }}
+					<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
 
-						</div>
+					<div class="ingredients col s12 m6 l6" style="white-space:normal">
+						<h3>Ingredients</h3>
+
+						{{ recipe.ingredients }}
 					</div>
-				</div>
 
-				<div row="recipe1">
-					<div class="main" id="methods">
-						<h3 class="method">Method</h3>
-						
-						<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
-					
-						<div class="col s12 m12 l12" style="white-space:normal">
+					<div class="methods col s12 m6 l6" style="white-space:normal">
+							<h3>Methods</h3>
 
 							{{ recipe.methods }}
 
-						</div>
-
-						<br>
-						<br>
-						<p><em><strong>Recipe submitted by:</em><strong>{{ recipe.username }} |  <strong><em>Date:</strong></em> {{recipe.date_added}}</p>
-
-						<header class='header text-left'>
-						<h6><strong>Rate this Recipe</strong></h6>
-						</header>
-
-
-						<!-- button for edit recipe -->
-
-
-						<!--Taken from Spence Barribal's code (student Code Institute).-->
-						{% if session['username'] == recipe.username %}
-						<div class="row float-right">
-							<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-secondary mr-3">Edit Recipe</a><br><br>
-							<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-danger">Delete Recipe</a>
-						</div>
-						{% endif %}
-
-
-
-
 					</div>
+					
+
 				</div>
 			</div>
+
 		</div>
+
+
+
+
+
+		<br>
+		<br>
+		<p><em><strong>Recipe submitted by:</em><strong>{{ recipe.username }} |  <strong><em>Date:</strong></em> {{recipe.date_added}}</p>
+
+	
+
+
+		<!-- button for edit recipe -->
+
+
+		<!--Taken from Spence Barribal's code (student Code Institute).-->
+		{% if session['username'] == recipe.username %}
+		<div class="row float-right">
+			<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-secondary mr-3" style="background-color:orangered">Edit Recipe</a><br><br>
+			<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-danger" style="background-color:orangered">Delete Recipe</a>
+		</div>
+		{% endif %}
+
+
+
+
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -87,7 +91,7 @@
 
 
 
-	
+
 
 
 {% endblock %}

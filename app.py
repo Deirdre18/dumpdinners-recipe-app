@@ -196,6 +196,7 @@ def register():
         register_id = register.insert_one(request.form.to_dict())
         # print(register)
         object_id = register_id.inserted_id
+        flash("Thank you for registering, please login")
         return redirect(url_for('allrecipes1',register_id=object_id))
     return render_template('register.html')
               
