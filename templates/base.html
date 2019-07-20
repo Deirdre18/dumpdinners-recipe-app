@@ -119,11 +119,13 @@
 
         </nav>
         <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
+        
+         {% if 'username' in session %}
         <ul class="sidenav" id="mobile-demo">
             <li class="nav-item">
-                <a href="{{ url_for('index') }}" style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
+                <a href="{{ url_for('allrecipes') }}" style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
             </li>
-
+        {% endif %}
 
 
         </ul>
@@ -295,7 +297,8 @@
             text-align: center;
         }
 
-       
+       strong { font-weight: bold; }
+
     </style>
 
 

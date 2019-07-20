@@ -211,7 +211,7 @@ def register():
 def logout():
     """Clears session and redirects to home"""
     session.clear()
-    return redirect(url_for('allrecipes'))
+    return redirect(url_for('allrecipes1'))
 
 
 
