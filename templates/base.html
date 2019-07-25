@@ -3,7 +3,7 @@
 
 <head>
     <!--referred to this link for downloading bootstrap, as well as previous CI tutorials - https://forums.fedoraforum.org/showthread.php?314148-How-to-download-bootstrap-->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,7 +25,7 @@
 
         form.example input[type=text] {
             padding: 5px;
-            font-size: 12px;
+            font-size: 11px;
             border: 1px solid grey;
             float: left;
             width: 4%;
@@ -35,12 +35,12 @@
 
         form.example button {
             float: left;
-            width: 3%;
+            width: 2%;
             height: 2%;
             padding: 5px;
             background: #2196F3;
             color: white;
-            font-size: 12px;
+            font-size: 11px;
             border: 1px solid grey;
             border-left: none;
             cursor: pointer;
@@ -80,8 +80,8 @@
     <div id="stripes4" class="pattern">
 
 
- <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
- 
+        <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
+
         {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:orangered">welcome back, {{ session['username'] }}</div>
 
@@ -92,11 +92,11 @@
         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
         </li>
-        
-         <li class="nav-item" style="text-align:center">
+
+        <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline">Home</a>
         </li>
-        
+
 
         {% else %}
 
@@ -124,13 +124,13 @@
 
         </nav>
         <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
-        
-         {% if 'username' in session %}
+
+        {% if 'username' in session %}
         <ul class="sidenav" id="mobile-demo">
             <li class="nav-item">
                 <a href="{{ url_for('allrecipes') }}" style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
             </li>
-        {% endif %}
+            {% endif %}
 
 
         </ul>
@@ -144,29 +144,30 @@
                     <img src="{{ url_for('static', filename='uploads/' + 'still-life.jpg') }}">
                 </div>
 
-                <h2 class="header center dark-blue-text text-darken-4" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
+                <h2 class="header center" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
 
-                <h1 class="header center dark-blue-text text-darken-4" class="header"><small>Get Dumping</small></h1>
+                <h1 class="header center" class="header"><small>Get Dumping</small></h1>
+                <br><br><br>
 
-                <br <br>
-                
-                 <!--/*referred to https://www.w3schools.com/howto/howto_css_search_button.asp*/-->
-                 
-                <li class="nav-item">
+
+                <!--/*referred to https://www.w3schools.com/howto/howto_css_search_button.asp*/-->
+
+                <div class="search-container">
+
+                    <h6 class="lead-search" style="color:orangered; text-align:left"><strong>Search for your favorite Dump Recipe!</strong></h6>
                     <form class="example" action="{{ url_for('search') }}">
-                        <input type="text" placeholder="Search Recipes.." required name="query" style="margin-top:10%; width:40%; height:3em !important; color: black">
+                        <input type="text" placeholder="Enter Keyword or Recipe Name.." required name="query" style="margin-top:1px; width:40%; height:3em !important; color:black">
                         <div id="search">
-                            <button type="submit" style="margin-top:10%; width:30%; height:4em !important; background-color:orangered;text-align:left"><i class="fa fa-search" style="font-size:15px">Search</i></button>
+                            <button type="submit" style="margin-top:1px; width:25%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">Search</i></button>
                         </div>
                     </form>
-                </li>
-
+                </div>
 
 
             </div>
         </div>
         <!--Referred to this link for adding photos dynamically. https://stackoverflow.com/questions/40877272/jinja2-not-displaying-the-images-->
-      
+
 
     </div>
 
@@ -181,15 +182,15 @@
 
     <script type="text/javascript">
         /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
-        
-        
-        
+
+
+
         $(document).ready(function() {
-                $(".button-collapse").sideNav();
-            });
-        
-      
-        
+            $(".button-collapse").sideNav();
+        });
+
+
+
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -240,7 +241,6 @@
 
 
     <style>
-    
         .fa {
             padding: 10px;
             font-size: 15px;
@@ -292,26 +292,29 @@
             text-align: center;
         }
 
-      
+
         .fa-android {
             background: #a4c639;
             color: white;
             text-align: center;
         }
 
-       
+
 
         .fa-yahoo {
             background: #430297;
             color: white;
             text-align: center;
         }
-
-       strong { font-weight: bold; }
-
+        
+        strong {
+            font-weight: bold;
+        }
+        
+       
     </style>
 
-
+ 
 
     <div class="footer">
 
@@ -337,8 +340,8 @@
             <a href="https://www.android.com/" class="fa fa-android"></a>
             <a href="https://www.yahoo.com/" class="fa fa-yahoo"></a>
 
-        
-    </div>
+
+        </div>
 
 
 
