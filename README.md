@@ -1,3 +1,12 @@
+Git Commands to use to rebase username and user email:-
+
+git commit -m --amend --author="Deirdre18 <deirdreweldon18@gmail.com>"
+
+Previous commands used:-
+
+
+
+
 DumpDinners Recipe App
 This project is my 3rd Milestone Project for Full-Stack Diploma in Software Development. It is the second last project for completion of this course. It is a Data Centric Project, using Python, Flask, MongoDB, HTML5, CSS3, Materialise CSS and some Bootstrap. I found the recipes from websites and added them to database, as well as registered users. 
 
