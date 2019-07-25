@@ -57,8 +57,10 @@ def add_recipe():
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    flash ("Your recipe has been inserted")
+    flash ("Thank you, your recipe has been inserted")
     return redirect(url_for('allrecipes'))
+              
+    
     
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
@@ -88,8 +90,7 @@ def update_recipe(recipe_id):
         'short_description': request.form.get('short_description'),
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
-        'views': 1
-        
+        'views': 1,
         }
     })
     return redirect(url_for('allrecipes'))
@@ -111,8 +112,8 @@ def search():
     results = mongo.db.recipes.find({
         '$or': [
             {'recipe_name': query},
-            {'tags': query},
             {'ingredients': query},
+            {'recipe_name': query}
         ]
     })
     return render_template('search.html', query=orig_query, results=results)
@@ -123,7 +124,7 @@ def recipe(recipe_id):
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        {'$inc': {'views': 1}}
+        {'$inc': {'views': 1}} 
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
@@ -196,7 +197,7 @@ def register():
         register_id = register.insert_one(request.form.to_dict())
         # print(register)
         object_id = register_id.inserted_id
-        flash("Thank you for registering, please login")
+        flash("Thank you for registering, please go to login")
         return redirect(url_for('allrecipes1',register_id=object_id))
     return render_template('register.html')
               
@@ -204,7 +205,6 @@ def register():
 
  
 #Copied routing for allrecipeslist from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
-
 
 
 @app.route('/logout')

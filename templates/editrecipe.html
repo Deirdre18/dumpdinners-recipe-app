@@ -20,15 +20,23 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
-                <select id="category" name="category_name">
-                  <option selected disabled>Choose Category</option>
-                  {% for cat in categories %}
-                      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                  {% endfor %}
-                </select>
-                    <label>Recipe Category</label>
+                <input id="category_name" name="category_name" type="text" class="validate" value="{{recipe.category_name}}">
+                <label for="icon_prefix">Category Name</label>
             </div>
         </div>
+        <!--<div class="row">-->
+            
+        <!--    <div class="input-field col s12">-->
+        <!--        <i class="material-icons prefix">poll</i>-->
+        <!--        <select id="category" name="category_name">-->
+        <!--          <option selected disabled>Choose Category</option>-->
+        <!--          {% for cat in categories %}-->
+        <!--              <option value="{{cat.category_name}}">{{cat.category_name}}</option>-->
+        <!--          {% endfor %}-->
+        <!--        </select>-->
+        <!--            <label>Recipe Category</label>-->
+        <!--    </div>-->
+        <!--</div>-->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
@@ -79,10 +87,12 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="date_added" name="date_added" type="text" class="datepicker">
-                <label for="icon_prefix">Date Added{{recipe.date_added}}</label>
+                <input id="date_added" name="date_added" type="text" class="datepicker" value="{{recipe.date_added}}">
+                <label for="icon_prefix">Date Added</label>
             </div>
         </div>
+        
+        
         <div class="row">
             <div class="switch">
                 <label>

@@ -2,19 +2,26 @@
 <h3>Add recipe</h3>
 <div class="row">
     <form action="{{ url_for('insert_recipe') }}" method="POST"  class="col s12">
-       <class="col s12">
-        <div class="row">
+       <div class="col s12">
+            <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
-                <select id="category" name="category_name">
-                  <option value="" disabled selected>Choose Category</option>
-                  {% for cat in categories %}
-                      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                  {% endfor %}
-                </select>
-                    <label>Recipe Category</label>
-                </div>
+                <input id="category_name" name="category_name" type="text" class="validate">
+                <label for="icon_prefix">Category Name</label>
             </div>
+        </div>
+        <!--<div class="row">-->
+        <!--    <div class="input-field col s12">-->
+        <!--        <i class="material-icons prefix">poll</i>-->
+        <!--        <select id="category" name="category_name">-->
+        <!--          <option value="" disabled selected>Choose Category</option>-->
+        <!--          {% for cat in categories %}-->
+        <!--              <option value="{{cat.category_name}}">{{cat.category_name}}</option>-->
+        <!--          {% endfor %}-->
+        <!--        </select>-->
+        <!--            <label>Recipe Category</label>-->
+        <!--        </div>-->
+        <!--    </div>-->
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="recipe_name" name="recipe_name" type="text">
@@ -56,13 +63,14 @@
                 <label for="username">Username</label>
             </div>
         </div>
-        <div class="row">
+       <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
                 <input id="date_added" name="date_added" type="text" class="datepicker">
                 <label for="icon_prefix">Date Added</label>
             </div>
         </div>
+        
      <div class="row">
             <div class="switch">
                 <label>
