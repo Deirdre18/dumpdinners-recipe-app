@@ -90,7 +90,8 @@ def update_recipe(recipe_id):
         'short_description': request.form.get('short_description'),
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
-        'views': 1,
+        'views':1,
+        'likes':1
         }
     })
     return redirect(url_for('allrecipes'))
@@ -121,53 +122,28 @@ def search():
 
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
+   
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        {'$inc': {'views': 1}} 
+        {'$inc': {'views':1}}
+        
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
 
+# https://python-forum.io/Thread-How-Do-I-Increment-My-View-Counter-in-Flask
+@app.route('/likes_count/<recipe_id>')
 
-
-
-#ROUTES FOR CATEGORIES
-
-
-@app.route('/get_categories')
-def get_categories():
-    return render_template('categories.html',
-        categories=mongo.db.categories.find())
-        
-@app.route('/add_category')
-def add_category():
-    return render_template('addcategory.html')
+def likes_count(recipe_id):
+    mongo.db.recipes
+    recipes = mongo.db.recipes
+    recipe.update({'_id': str(recipe_id)}, {'$inc': {'likes': int(1)}})
+    return redirect(url_for('allrecipes'))
     
-@app.route('/insert_category', methods=['POST'])
-def insert_category():
-    category_doc = {'category_name': request.form.get('category_name')}
-    mongo.db.categories.insert_one(category_doc)
-    return redirect(url_for('allrecipes'))        
- 
-@app.route('/edit_category/<category_id>')
-def edit_category(category_id):
-    return render_template('editcategory.html',
-    categories=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
 
-
-@app.route('/update_category/<category_id>', methods=['POST'])
-def update_category(category_id):
-    categories = mongo.db.categories
-    categories.update({'_id': ObjectId(category_id)},
-    {
-       
-         
-         'category_name': request.form.get('category_name'), 
-        
-    })
-    return redirect(url_for('get_categories'))
-
+    
+    
 #Copied routing for login from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
 
 

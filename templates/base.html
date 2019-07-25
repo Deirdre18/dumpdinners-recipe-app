@@ -82,28 +82,26 @@
 
         <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
 
-        {% if 'username' in session %}
+       {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:orangered">welcome back, {{ session['username'] }}</div>
-
         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'add_recipe') }}" style="text-decoration:underline">Add Recipe</a>
         </li>
-
         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
         </li>
 
-        <li class="nav-item" style="text-align:center">
+         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline">Home</a>
         </li>
 
 
         {% else %}
 
-        <div class="login" style="text-align:center;color:orangered;text-decoration:underline">please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>
+        <div class="login" style="text-align:center;text-decoration:underline; color:white">please<a href="{{ url_for('login') }}" style="color:blue"><strong> login</a></strong>  or <a href="{{ url_for('register') }}" style="color:blue"><strong> register</strong></a>
         </div>
         {% endif %}
-
+        
         <nav>
             <div class="nav-wrapper">
                 <a class="brand-logo" style="color:orangered">DumpDinners</a>
@@ -174,17 +172,17 @@
     <div id="stripes4" class="pattern">
         {% block content %}{% endblock %}
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
 
     <script type="text/javascript">
-        /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
-
-
-
+       
         $(document).ready(function() {
             $(".button-collapse").sideNav();
         });
@@ -214,6 +212,13 @@
         });
     </script>
 
+<script>
+	function myFunction(x) {
+		x.classList.toggle("fa-thumbs-down");
+	}
+</script>
+    
+    
     <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html-->
     <!--decided to make footer fixed rather than flexible-->
 
@@ -306,15 +311,17 @@
             color: white;
             text-align: center;
         }
-        
+
         strong {
             font-weight: bold;
         }
         
-       
-    </style>
+        
 
- 
+</style>
+    
+
+
 
     <div class="footer">
 
