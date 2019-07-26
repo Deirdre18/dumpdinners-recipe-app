@@ -82,7 +82,7 @@
 
         <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
 
-       {% if 'username' in session %}
+        {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:orangered">welcome back, {{ session['username'] }}</div>
         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'add_recipe') }}" style="text-decoration:underline">Add Recipe</a>
@@ -91,17 +91,17 @@
             <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
         </li>
 
-         <li class="nav-item" style="text-align:center">
+        <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline">Home</a>
         </li>
 
 
         {% else %}
 
-        <div class="login" style="text-align:center;text-decoration:underline; color:white">please<a href="{{ url_for('login') }}" style="color:blue"><strong> login</a></strong>  or <a href="{{ url_for('register') }}" style="color:blue"><strong> register</strong></a>
+        <div class="login" style="text-align:center;text-decoration:underline; color:white">please<a href="{{ url_for('login') }}" style="color:blue"><strong> login</a></strong> or <a href="{{ url_for('register') }}" style="color:blue"><strong> register</strong></a>
         </div>
         {% endif %}
-        
+
         <nav>
             <div class="nav-wrapper">
                 <a class="brand-logo" style="color:orangered">DumpDinners</a>
@@ -172,23 +172,23 @@
     <div id="stripes4" class="pattern">
         {% block content %}{% endblock %}
     </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    </script>
 
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
 
     <script type="text/javascript">
-       
         $(document).ready(function() {
             $(".button-collapse").sideNav();
         });
+    </script>
 
-
-
+    <script type="text/javascript">
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -197,6 +197,10 @@
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
         });
+    </script>
+
+        
+    <script>
 
         $(document).ready(function() {
             $('.parallax').parallax();
@@ -211,13 +215,6 @@
             $('select').material_select();
         });
     </script>
-
-<script>
-	function myFunction(x) {
-		x.classList.toggle("fa-thumbs-down");
-	}
-</script>
-    
     
     <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html-->
     <!--decided to make footer fixed rather than flexible-->
@@ -273,20 +270,9 @@
             text-align: center;
         }
 
-        .fa-google {
-            background: #dd4b39;
-            color: white;
-            text-align: center;
-        }
 
         .fa-youtube {
             background: #bb0000;
-            color: white;
-            text-align: center;
-        }
-
-        .fa-instagram {
-            background: #125688;
             color: white;
             text-align: center;
         }
@@ -298,28 +284,11 @@
         }
 
 
-        .fa-android {
-            background: #a4c639;
-            color: white;
-            text-align: center;
-        }
-
-
-
-        .fa-yahoo {
-            background: #430297;
-            color: white;
-            text-align: center;
-        }
-
         strong {
             font-weight: bold;
         }
-        
-        
+    </style>
 
-</style>
-    
 
 
 
@@ -340,12 +309,9 @@
 <!-- Add font awesome icons -->
             <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
             <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
-            <a href="https://www.google.com/" class="fa fa-google"></a>
             <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
-            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
             <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
-            <a href="https://www.android.com/" class="fa fa-android"></a>
-            <a href="https://www.yahoo.com/" class="fa fa-yahoo"></a>
+
 
 
         </div>

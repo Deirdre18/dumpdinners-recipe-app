@@ -90,13 +90,30 @@ def update_recipe(recipe_id):
         'short_description': request.form.get('short_description'),
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
-        'views':1,
-        'likes':1
+        'views':1
         }
     })
     return redirect(url_for('allrecipes'))
     
-
+# @app.route('/update_recipe_rating/<recipe_id>', methods=['POST'])
+# def update_recipe_rating(recipe_id):
+   
+#     recipe = mongo.db.recipes
+    
+#     this_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    
+#     number_of_votes = int(this_recipe['number_of_votes'])
+#     print('number_of_votes is: ', number_of_votes)
+    
+#     initial_recipe_rating = int(this_recipe['recipe_rating'])
+#     print('initial recipe rating is: ',  initial_recipe_rating)
+    
+#     latest_recipe_rating = int(request.json['recipe_rating'])
+#     print('latest recipe rating posted is: ', latest_recipe_rating)
+    
+  
+    
+#     return ('', 204)
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -126,21 +143,13 @@ def recipe(recipe_id):
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        {'$inc': {'views':1}}
+        { '$inc': { 'views': 1 }}
         
+      
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
 
-# https://python-forum.io/Thread-How-Do-I-Increment-My-View-Counter-in-Flask
-@app.route('/likes_count/<recipe_id>')
-
-def likes_count(recipe_id):
-    mongo.db.recipes
-    recipes = mongo.db.recipes
-    recipe.update({'_id': str(recipe_id)}, {'$inc': {'likes': int(1)}})
-    return redirect(url_for('allrecipes'))
-    
 
     
     

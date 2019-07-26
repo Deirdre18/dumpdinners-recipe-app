@@ -4,7 +4,7 @@ git commit -m --amend --author="Deirdre18 <deirdreweldon18@gmail.com>"
 
 Previous commands used:-
 
-
+git commit -m --amend --author="Deirdre18 <deirdreweldon18@gmail.com>"
 
 
 DumpDinners Recipe App
