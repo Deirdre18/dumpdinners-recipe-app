@@ -85,18 +85,18 @@
         {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:blue">welcome back, {{ session['username'] }}
         </div>
-        
+        	
         <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red"style="font-size:8px">add recipe</button><i class="material-icons" style="text-align:center; float:center"></i></a>
+            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red" style="font-size:10px; color: organgered; width:45px">+ Recipe</button><i class="material-icons" style="text-align:center; float:center; margin-left:20px"></i></a>
         </li>
         
          
         <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
+            <a href="{{ url_for( 'logout') }}" style="text-decoration:underline; color:blue">Logout</a>
         </li>
 
         <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline">Home</a>
+            <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline;color:blue">Home</a>
         </li>
 
 
@@ -327,7 +327,7 @@
 
 
 
-        </div>
+    </div>
 
 
 
