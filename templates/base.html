@@ -83,10 +83,14 @@
         <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
 
         {% if 'username' in session %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:orangered">welcome back, {{ session['username'] }}</div>
+        <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:blue">welcome back, {{ session['username'] }}
+        </div>
+        
         <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for( 'add_recipe') }}" style="text-decoration:underline">Add Recipe</a>
+            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red"style="font-size:8px">add recipe</button><i class="material-icons" style="text-align:center; float:center"></i></a>
         </li>
+        
+         
         <li class="nav-item" style="text-align:center">
             <a href="{{ url_for( 'logout') }}" style="text-decoration:underline">Logout</a>
         </li>
