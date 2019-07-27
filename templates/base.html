@@ -89,9 +89,11 @@
         <!--Referred to stack overflow article on centering anchors.-->
 
         <div class="display:block; text-align: center">
-            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red" style=" font-size:11px; color: blue; width:60px; height:50px;text-transform:uppercase"><strong><uppercase>+ Recipe</uppercase></strong></button><i class="material-icons"></i></a>
-        </div>
-
+            <a href="{{ url_for('add_recipe') }}" <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">Add Recipe
+                <i class="material-icons right">playlist_add</i>
+             </button></div></a>
+            
+           
 
         <div class="display:block; text-align: center">
             <a href="{{ url_for( 'logout') }}" style="text-decoration:underline; color:blue; text-align:center,color:blue"><strong>Logout</strong></a>

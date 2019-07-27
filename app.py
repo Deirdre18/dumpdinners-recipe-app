@@ -54,13 +54,15 @@ def add_recipe():
         recipes=mongo.db.categories.find())   
 
     
+
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    flash ("Thank you, your recipe has been inserted")
-    return redirect(url_for('allrecipes'))
-              
+    flash ("Thank you, your recipe has been inserted!")
+    return render_template('recipe.html', recipe=recipe)
+   
+         
     
     
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
@@ -167,7 +169,7 @@ def login():
                 session['username'] = login_user["username"]
                 return redirect(url_for('allrecipes',register_id = login_user["_id"]))
             else: # and if password is not correct
-               flash("Incorrect password") 
+               flash("Incorrect password, please try again or register") 
         else:# if user does not exist
             flash("User does not exist")
             return redirect(url_for('register'))
@@ -183,8 +185,8 @@ def register():
         register_id = register.insert_one(request.form.to_dict())
         # print(register)
         object_id = register_id.inserted_id
-        flash("Thank you for registering, please go to login")
-        return redirect(url_for('allrecipes1',register_id=object_id))
+        flash("Thank you for registering, please login to view more recipes and add your own!")
+        return redirect(url_for('login'))
     return render_template('register.html')
               
     
@@ -196,8 +198,10 @@ def register():
 @app.route('/logout')
 def logout():
     """Clears session and redirects to home"""
+    
     session.clear()
-    return redirect(url_for('allrecipes1'))
+    flash ("Thank you, hope to see you again soon!")
+    return redirect(url_for('login'))
 
 
 
