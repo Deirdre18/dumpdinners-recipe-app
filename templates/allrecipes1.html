@@ -1,49 +1,49 @@
-{% extends "base.html" %}
-{% block content %}
-     
-        <h1 class="title">Recipes</h1>
- {#{{referred to https://github.com/pierceoneill/code-institute-milestone-project-04/blob/master/templates/recipes.html for recipe-cards code.}}#}      
- 
+{% extends "base.html" %} {% block content %}
 
- 
-   <div id="recipe-cards" class="row">
+<h1 class="title">Recipes</h1>
+{#{{referred to https://github.com/pierceoneill/code-institute-milestone-project-04/blob/master/templates/recipes.html for recipe-cards code.}}#}
+
+
+
+<div id="recipe-cards" class="row">
     {% for recipe in recipes %}
-        <div class="col s12 m4 l3 recipe-card" data-date="{{recipe.date_added}}">
-            <div class="card-heading"style="text-align:center"> 
-               
-                    <div class="card-title">
-                        <h6><span id="recipe_name" name="recipe_name" ><i><strong>{{recipe.recipe_name}} </i></strong></span></h6>
-                      
-                    </div>
-            </div><br><br>
-            
-                    
-            <div class="card-image" >
-                <img src="{{recipe.image}}" width="200" height="200" style="margin-top": 40%;>
+    <div class="col s12 m4 l3 recipe-card" data-date="{{recipe.date_added}}">
+        <div class="card-heading" style="text-align:center">
+
+            <div class="card-title">
+                <h6><span id="recipe_name" name="recipe_name"><i><strong>{{recipe.recipe_name}} </i></strong></span></h6>
+
             </div>
-          
-          
-            <div class="card-body">    
-             
-                <p id="short_description"></p> <strong><em>{{recipe.short_description}}</strong></em></p>
-            </div>    
-        
-           <div class="card-footer">
-            
-           
-                <div class="card-action">
-                   <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More
+        </div><br><br>
+
+        <p><strong>Views:{{ recipe.views }} Likes: {{recipe.likes}}</strong> </p>
+
+
+        <div class="card-image">
+            <img src="{{recipe.image}}" width="200" height="200" style="margin-top" : 40%;>
+        </div>
+
+
+        <div class="card-body">
+
+            <p id="short_description"></p> <strong><em>{{recipe.short_description}}</strong></em>
+            </p>
+        </div>
+
+        <div class="card-footer">
+
+
+            <div class="card-action">
+                <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More
                 <i class="material-icons right">view_list</i>
              </button></a>
-                      
-                </div>
-           </div> 
-           
-           
-        
-          
-            <!-- more display -->
+
+            </div>
+        </div>
+
+
+
+
+        <!-- more display -->
     </div>
-    {% endfor %}     
-    
-{% endblock %}
+    {% endfor %} {% endblock %}

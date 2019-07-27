@@ -51,7 +51,7 @@ def allrecipes1():
 def add_recipe():
     recipes = mongo.db.recipes.find()
     return render_template('addrecipe.html',
-        categories=mongo.db.categories.find())   
+        recipes=mongo.db.categories.find())   
 
     
 @app.route('/insert_recipe', methods=['POST'])
@@ -149,7 +149,7 @@ def likes(recipe_id):
       
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    return render_template('recipe.html', recipe=recipe_db)
+    return redirect(url_for('allrecipes1'))
 
 
     

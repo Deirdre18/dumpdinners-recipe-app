@@ -8,6 +8,8 @@ This project is my 3rd Milestone Project for Full-Stack Diploma in Software Deve
 
 ## **UX Design**
 
+Dump and Bake Idea originated from looking on this website - https://www.amazon.com/Dump-Dinners-Perfect-Cookbook-Delicious-ebook/dp/B01AV6T4DG
+
 Used materialise css and added buttons (add recipe) to make the UI intuitive. 
 
 
@@ -49,7 +51,11 @@ Used materialise css and added buttons (add recipe) to make the UI intuitive.
 
 ## **Testing**
 
-User doesn't exit flash message - if password entered incorrect (image to be attached). Case sensitive, so if using uppercase letter instead of lower for password, won't be able to login.
+User doesn't exit flash message - if incorrect username entered (image to be attached). Case sensitive, so if using uppercase letter instead of lower for password, won't be able to login.
+
+
+
+
 
 ## **Version Control (GitHub)**
 
@@ -175,6 +181,42 @@ Commands used to install dependencies:-
 
 
 ## **Credits**
+
+http://cookbook-pierce.herokuapp.com/get_home
+
+https://github.com/pierceoneill/code-institute-milestone-project-04
+
+https://recipe-glut.herokuapp.com/index
+
+https://github.com/5pence/recipeGlut
+
+
+
+Dump recipe websites:
+
+https://tasty.co/article/melissaharrison/vegetarian-dump-dinners
+https://www.theseasonedmom.com
+https://parade.com/843958/kristanroland/20-dump-it-and-forget-it-crock-pot-meals/#gallery_843958-4
+https://myheavenlyrecipes.com
+https://www.bettycrocker.com/menus-holidays-parties/mhplibrary/recipes/dump-and-go-dinners-to-save-your-crazy-days?esrc=18010&utm_medium=cpc&utm_source=pinterest&utm_campaign=omp_display_ompbc_td_eff&pp=1
+https://parade.com/843958/kristanroland/20-dump-it-and-forget-it-crock-pot-meals
+http://bargainbriana.com/bourbon-chicken/
+http://bargainbriana.com/one-hour-8-chicken-freezer-meals/
+https://damndelicious.net/2013/09/22/5-ingredient-white-chicken-chili/
+https://www.tasteofhome.com/recipes/cherry-pudding-cake/
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
 
 ### **Content**
 

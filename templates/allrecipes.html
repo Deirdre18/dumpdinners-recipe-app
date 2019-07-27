@@ -9,6 +9,7 @@
    <div id="recipe-cards" class="row">
     {% for recipe in recipes %}
         <div class="col s12 m4 l3 recipe-card" data-date="{{recipe.date_added}}">
+            
             <div class="card-heading"> 
                
                     <div class="card-title" style="text-align:center">
@@ -16,7 +17,8 @@
                       
                     </div>
             </div>
-            
+            <p><strong>Views:{{ recipe.views }} Likes: {{recipe.likes}}</strong> </p>
+
                     
             <div class="card-image" >
                 <img src="{{recipe.image}}" width="200" height="200" style="margin-top": 40%;>
