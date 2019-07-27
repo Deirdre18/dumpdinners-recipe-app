@@ -6,8 +6,6 @@
 </ul>
 {% endif %} {% endwith %}
 
-
-
 <div class="container recipe-container content-container">
 	<!-- Recipe-->
 	<section class="recipe">
@@ -15,15 +13,23 @@
 			<div class="col s12 m12 l12">
 				<div class="page-header">
 					<h2 class="text-uppercase">RECIPE</h2>
-					
 
-					<p><strong>Recipe Views:{{ recipe.views }} </p>
+
+					<p><strong>Recipe Views:{{ recipe.views }} Recipe Likes: {{recipe.likes}}</strong> </p>
 
 					<!--rate recipe-->
 				</div>
 			</div>
 		</div>
-		
+
+
+	
+                <a href="{{ url_for('likes', recipe_id=recipe._id) }}"  
+                <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+             </button>
+
+
+		</footer>
 		<div class="row" style="text-align:center"></div>
 		<h3><em>{{recipe.recipe_name}}</em></h3>
 
