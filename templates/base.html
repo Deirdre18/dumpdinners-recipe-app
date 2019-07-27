@@ -83,23 +83,23 @@
         <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
 
         {% if 'username' in session %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:blue">welcome back, {{ session['username'] }}
+        <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:blue"><strong>welcome back, {{ session['username'] }}</strong>
         </div>
-        	
-        <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red" style="font-size:10px; color: organgered; width:45px">+ Recipe</button><i class="material-icons" style="text-align:center; float:center; margin-left:20px"></i></a>
-        </li>
+
+        <!--Referred to stack overflow article on centering anchors.-->
         
-         
-        <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for( 'logout') }}" style="text-decoration:underline; color:blue">Logout</a>
-        </li>
-
-        <li class="nav-item" style="text-align:center">
-            <a href="{{ url_for( 'allrecipes') }}" style="text-decoration:underline;color:blue">Home</a>
-        </li>
+        <div class="display:block; text-align: center">
+            <a href="{{ url_for('add_recipe') }}" <button class="btn-floating btn-small waves-effect waves-light red" style=" font-size:11px; color: blue; width:60px; height:50px;text-transform:uppercase"><strong><uppercase>+ Recipe</uppercase></strong></button><i class="material-icons"></i></a>
+        </div>
 
 
+        <div class="display:block; text-align: center">
+            <a href="{{ url_for( 'logout') }}text-align:center" style="text-decoration:underline; color:blue; text-align:center,color:blue"><strong>Logout</strong></a>
+
+        <a href="{{ url_for( 'allrecipes') }}text-align:center" style="text-decoration:underline;color:blue; text-align:center"><strong>Home</strong></a> 
+        
+         </div>
+        
         {% else %}
 
         <div class="login" style="text-align:center;text-decoration:underline; color:white">please<a href="{{ url_for('login') }}" style="color:blue"><strong> login</a></strong> or <a href="{{ url_for('register') }}" style="color:blue"><strong> register</strong></a>
@@ -203,9 +203,8 @@
         });
     </script>
 
-        
-    <script>
 
+    <script>
         $(document).ready(function() {
             $('.parallax').parallax();
         });
@@ -219,9 +218,9 @@
             $('select').material_select();
         });
     </script>
-    
-  
-    
+
+
+
     <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html-->
     <!--decided to make footer fixed rather than flexible-->
 
@@ -298,38 +297,75 @@
             font-weight: bold;
         }
     </style>
-    
-    
-    
-    
- 
-    
-
-    <div class="footer">
 
 
+
+
+
+
+
+    <!--<div class="footer">-->
+
+
+    <!--    <div class="container">-->
+    <!--created blank spaces, referred to https://www.computerhope.com/jargon/n/nbsp.htm-->
+    <!--        © 2019 Created with Code and Materialise&nbsp| Deirdre Weldon |&nbsp<a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered; text-decoration: underline">DumpDinners Website-->
+
+    <!--    </div>  -->
+
+    <!--for social media icons and styles referred to https://www.w3schools.com/howto/howto_css_social_media_buttons.asp    -->
+
+
+
+
+    <!-- Add font awesome icons -->
+    <!--        <a href="https://www.facebook.com/" class="fa fa-facebook"></a>-->
+    <!--        <a href="https://www.twitter.com/" class="fa fa-twitter"></a>-->
+    <!--        <a href="https://www.youtube.com/" class="fa fa-youtube"></a>-->
+    <!--        <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>-->
+
+
+
+    <!--</div>-->
+
+
+    <footer class="page-footer #eceff1 blue-grey lighten-5" id="footer-custom">
         <div class="container">
-            <!--created blank spaces, referred to https://www.computerhope.com/jargon/n/nbsp.htm-->
-            © 2019 Created with Code and Materialise&nbsp| Deirdre Weldon |&nbsp<a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered; text-decoration: underline">DumpDinners Website
-            
-        </div>  
-            
-        <!--for social media icons and styles referred to https://www.w3schools.com/howto/howto_css_social_media_buttons.asp    -->
-        
-        
-           
+            <div class="row no-margin">
+                <div class="col l6 m3 mobile-hide">
+                    <h5 class="black-text footer-heading">DumpDinners</h5>
+                    <p class="black-text text-lighten-4 footer-text">
+                        Easy Delicious Dump Recipes to make anytime!<br> Do you have any suggestions?<br>
+                        <a class="pink-text text-darken-3" href="mailto:dumpdinners">info@dumpdinners.com</a>
+                    </p>
+                </div>
+                <div class="col l3 m3 mobile-hide">
+                    <h5 class="black-text footer-heading">Go to</h5>
+                    <ul>
+                        <li class="footer-text"><a class="black-text" href="{{url_for('allrecipes')}}">All Recipes</a></li>
+                        <li class="footer-text"><a class="black-text" href="{{url_for('allrecipes')}}">My Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 m3 s12">
+                    <h5 class="black-text footer-heading">More Info</h5>
+                    <ul>
+                        <li class="footer-text"><a class="black-text" href=""><i class="fa fa-facebook fa-lg"></i> facebook.com/dumpdinners</a></li>
+                        <li class="footer-text"><a class="black-text" href=""><i class="fa fa-twitter fa-lg"></i> @dumpdinners</a></li>
+                        <li class="footer-text"><a class="black-text" href=""><i class="fabfa-instagram fa-lg"></i> instagram/com/dumpdinners</a></li>
+                        <li class="footer-text"><a class="black-text" href=""><i class="fa fa-pinterest fa-lg"></i> pinterest.com/dumpdinners</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright footer-text #4db6ac teal lighten-2">
+            <div class="container">
+                Deirdre 2018 made with <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
 
-<!-- Add font awesome icons -->
-            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
-            <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
-            <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
-            <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
-
-
-
-    </div>
-
-
+                <a class="black-text text-lighten-1 right" href="https://www.linkedin.com/in/deirdre weldon/"><i class="fa fa-linkedin fa-2x"></i> deirdre weldon </a>
+                <a class="black-text text-darken-4 right" href="https://github.com/deidreweldon"><i class="fa fa-github"></i> deirdreweldon &nbsp &nbsp</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
