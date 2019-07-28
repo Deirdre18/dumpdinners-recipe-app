@@ -2,7 +2,6 @@ import os
 import re
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 import json
-from functools import update_wrapper
 from flask_pymongo import PyMongo
 import pymongo
 from pymongo import MongoClient
