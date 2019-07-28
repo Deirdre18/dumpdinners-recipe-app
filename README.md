@@ -113,7 +113,7 @@ Base languages used to create website.
 
 Used **HTML5** to handle page routing and to build custom directives - [HTML5](https://www.html5rocks.com/en/)
 
-Used **Font Awesome Icons** to give our project an intuitive 'google style'look and feel - [Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/)
+Used **Font Awesome** icons to give our project an intuitive 'google style'look and feel - [FONT AWESOME 4.7.0](https://fontawesome.com/v4.7.0/)
 
 Used **CSS3** for styling and enhancing the look of the website - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
 
@@ -129,9 +129,9 @@ Used Python 3.6.7 for developing this project - [PYTHON](https://docs.python.org
 
 Used Flask 1.0.2 for developing this project - [FLASK](https://flask.palletsprojects.com/en/1.0.x/)
 
-Used Flask 1.0.2 for developing this project -[FLASK_PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
+Used Flask_Pymongo 2.2.0 for developing this project -[FLASK_PYMONGO](https://flask-pymongo.readthedocs.io/en/latest/)
 
-Used Flask 1.0.2 for developing this project - [PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
+Used Pymongo 3.7.2 for developing this project - [PYMONGO](https://pypi.org/project/pymongo/)
 
 Used Jinja2.10 for developing this project - [JINJA2](http://jinja.pocoo.org/docs/2.10/)
 
