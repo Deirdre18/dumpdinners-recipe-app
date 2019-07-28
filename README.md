@@ -110,34 +110,34 @@ To understand more about Flask, WSGI and Jinja2, click here -[FLASK]https://www.
 - **HTML5**, **CSS3**, **Javascript**, **JQuery**, **Materialise CSS**, **Python**, **Flask** **Flask Py_Mongo**, *MongoDB** 
 
 Base languages used to create website.
-[HTML5](https://www.html5rocks.com/en/)
-- Used **HTML5** to handle page routing and to build custom directives.
-[Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/)
-- Used **Font Awesome Icons** to give our project an intuitive 'google style' feel and look.
-[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-- Used **CSS3** for styling and enhancing the look of the website.
-[JAVASCRIPT](https://developer.mozilla.org/bm/docs/Web/JavaScript)
-- Used **Javascript** (minified versions) added end of document.  
-[JQuery](https://jquery.com/)
-- Used **JQuery** to trigger ready() functions for datepicker, collapsible side nav bar and materialise selection functions.
-[BOOTSTRAP](http://getbootstrap.com/getting-started/)
-- Downloaded **Bootstrap** vendor files but did not make use of bootstrap developing the project. At the start, I was unsure whether to use Bootstrap or Materialise CSS, but choose and stayed with using Materialise CSS and UI throughout the project.
-[MATERIALISE CSS](https://materializecss.com/)
-- Materialise CSS UI was used throughout this project. I liked the look and feel of this UI, which is the same style Google use.
-[PYTHON](https://docs.python.org/3/)
-- Used Python 3.6.7 for developing this project. 
-[FLASK](https://flask.palletsprojects.com/en/1.0.x/)
-- Used Flask 1.0.2 for developing this project. 
-[FLASK_PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
-- Used Flask 1.0.2 for developing this project. 
-[PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
-- Used Flask 1.0.2 for developing this project. 
-[JINJA2](http://jinja.pocoo.org/docs/2.10/)
-- Used Jinja2.10 for developing this project. 
-[WERKZEUG](https://www.palletsprojects.com/p/werkzeug/)
-- Used Werkzeug 0.14.1 for developing this project. 
-[MONGO DB](https://mlab.com/)
-- Used Mongo DB (mLab) for this project. 
+
+Used **HTML5** to handle page routing and to build custom directives - [HTML5](https://www.html5rocks.com/en/)
+
+Used **Font Awesome Icons** to give our project an intuitive 'google style'look and feel - [Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/)
+
+Used **CSS3** for styling and enhancing the look of the website - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
+
+Used **Javascript** (minified versions) added end of document - [JAVASCRIPT](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+
+Used **JQuery** to trigger ready() functions for datepicker, collapsible side nav bar and materialise selection functions - [JQUERY](https://jquery.com/)
+
+Downloaded **Bootstrap** vendor files but did not make use of bootstrap developing the project. At the start, I was unsure whether to use Bootstrap or Materialise CSS, but choose and stayed with using Materialise CSS and UI throughout the project - [BOOTSTRAP](http://getbootstrap.com/getting-started/)
+ 
+Materialise CSS UI was used throughout this project. I liked the look and feel of this UI, which is the same style Google use -[MATERIALISE CSS](https://materializecss.com/)
+ 
+Used Python 3.6.7 for developing this project - [PYTHON](https://docs.python.org/3/)
+
+Used Flask 1.0.2 for developing this project - [FLASK](https://flask.palletsprojects.com/en/1.0.x/)
+
+Used Flask 1.0.2 for developing this project -[FLASK_PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
+
+Used Flask 1.0.2 for developing this project - [PYMONGO](https://flask.palletsprojects.com/en/1.0.x/)
+
+Used Jinja2.10 for developing this project - [JINJA2](http://jinja.pocoo.org/docs/2.10/)
+
+Used Werkzeug 0.14.1 for developing this project - [WERKZEUG](https://www.palletsprojects.com/p/werkzeug/)
+
+Used Mongo DB (mLab) for this project - [MONGO DB](https://mlab.com/)
 
 ## **Testing**
 
