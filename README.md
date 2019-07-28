@@ -284,7 +284,7 @@ The content contained in the project is mainly my own and anywhere I've used any
 
 Referred to this article for help understanding how to set secret key - [SECRET_KEY)(https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key)
 
-Referred to this article for understand how to store flask sessions in dictionary - [FLASK SESSIONS)(Referred to this article for help understanding how to set secret key - [SECRET_KEY)(https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key))
+Referred to this article for understand how to store flask sessions in dictionary - [FLASK SESSIONS)(Referred to this article for help understanding how to set secret key - [SECRET_KEY)(https://stackoverflow.com/questions/44625926/using-flask-session-to-store-dict)
 
 To understand how Flask Login works, referred to this - [FLASK SESSIONS)(Referred to this article for help understanding how to set secret key - [FLASK LOGIN)(https://flask-login.readthedocs.io/en/latest/)
 
