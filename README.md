@@ -25,7 +25,7 @@ First and foremost, the user is the primary focus of creating a website. The typ
 - Working mum with kids
 - Anyone else who is interested in preparing and cooking dump meals and deserts. 
 
-From researching what a user story is, I realised it is "a tool used for Agile software development to capture a description of a software feature from an end-user perspective. The user story describes the type of user, what they want and why. A user story helps to create a simplified description of a requirement." So what exactly is a User Story - [What is a User Story?](https://searchsoftwarequality.techtarget.com/definition/user-story).
+From researching what a user story is, I realised it is "a tool used for Agile software development to capture a description of a software feature from an end-user perspective. The user story describes the type of user, what they want and why. A user story helps to create a simplified description of a requirement." - [What is a User Story?](https://searchsoftwarequality.techtarget.com/definition/user-story).
 As per previous projects I completed, for direction in UX design I referred to what I learned in the Code Institute tutorials, and also referred to this website about user experience, [Red Rocket Web Specialist](https://www.redrocketmg.com/5-planes-UX-design-great-website/), who consider that the two most important aspects of designing a good website are (1) the Abstract aspect (idea, goal, etc) and (2) the Concrete aspect (how to get a user to click on a link, etc). The transition from Abstract to Concrete should remain linear to ensure a smooth transition, with each phase being fluid and overlapping. 
 
 **Garret's 5 Planes of UX design are as follows:-**
@@ -51,11 +51,13 @@ This is the plan or flow of interactions users will take to navigate and underst
 
 ### **Skeleton**
 
-In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools which Baslamic provides (and also due to time limitations), I created blobs using Basalmic with screenshots of different views of the DumpDinners website, giving a brief explanation for each view.
+In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools (and also due to time limitations) which Baslamic provides, I created blobs using Basalmic with screenshots of different views on website, giving explanation for each. 
 
-I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Basalmic - [WIREFRAMES](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
+I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Basalmic](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
 
 ### **Surface**
+
+https://www.shutterstock.com/
 
 The surface, or the skin – is the interface for which visitors will engage with the dashboard. I kept the color scheme congruent, using complimentary colors such as blue and organge through the various website views, and used an orange gradient scheme throughout to add color to all areas of the website to enhance the look and feel of the website. I referred to this article - [CSS Background Gradient](https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm)
  
@@ -81,7 +83,7 @@ All typography was in English but as Google has a translator, can be easily tran
 - I had hoped to add flask messaging for users who want to delete a recipe they added, with a 'danger' message (ie) "Do you really want to delete this message, as this action is irreversible?". Unfortunately I did not get time to do this. 
 - I had hoped to improve my search button feature to allow for searching recipes by category (ie) to have category options for searching (vegetarian, chicken, meat, french cusine, desert, fish). However, again there wasn't time to do this, as I approach the submit deadline for this project. 
 - Had hoped to add a 'back button' to web pages, and not sure if I will have time to do so, to increase ease of navigation. The website is easy to navigate however. 
-- Was a little disappointed in testing on mobile devices to find images skewed to the left on certain smaller mobile devices, although the full images do show and are responsive. I did intend to fix this by adding media queries, but as deadline to submit is within next day or so, I am not sure if I will get around to this. 
+- Was a little disappointed in testing on mobile devices to find images skewed to the left on certain mobile devices, however not on others. I did intend to fix this by adding media queries, but as deadline to submit is within next day or so, I am not sure if I will get around to this. 
 - Similarily to above, I had hoped to add an 'About Page' detailing the idea behind DumpDinners website and contact page, but again time is limited.
 - Recipes are displayed showing ingredients and methods in paragraph format, separated by bullet points, rather than on single lines. I used - 'pre-wrap': 'normal' for this. Ideally I would've preferred that the contents of the recipe were listed singularly but I had a lot of work to do developing the website, and I didn't focus too much on this aspect. My main purpose was to build a website that looked and felt good to use, and was functional, even if only basic functions. The important thing I remembered was that functions like CRUD could be carried out with minimum of ease. 
 - Login security features was handled by importing 'from werkzeug.security import generate_password_hash, check_password_hash'. However I did not install flask bycrypt, so users could create any password and didn't have to be composed of numbers/special characters/letters, etc. 
@@ -100,7 +102,7 @@ WSGI is a Web Server Gateway Interface (WSGI) for a universal interface between 
 - Jinja2
 Jinja2 is a popular templating engine for Python. A web templating system combines a template with a certain data source to render dynamic web pages. It aims to keep the core of an application simple yet extensible. 
 
-To understand more about Flask, WSGI and Jinja2, click here -[FLASK](https://www.tutorialspoint.com/flask/flask_quick_guide)
+To understand more about Flask, WSGI and Jinja2, click here -[FLASK]https://www.tutorialspoint.com/flask/flask_quick_guide
 
 ## **Tech Used**
 
@@ -110,17 +112,17 @@ To understand more about Flask, WSGI and Jinja2, click here -[FLASK](https://www
 Base languages used to create website.
 [HTML5](https://www.html5rocks.com/en/)
 - Used **HTML5** to handle page routing and to build custom directives.
-[FONT AWESOME 4.7.0](https://fontawesome.com/v4.7.0/)
+[Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/)
 - Used **Font Awesome Icons** to give our project an intuitive 'google style' feel and look.
 [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
 - Used **CSS3** for styling and enhancing the look of the website.
-[Javascript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+[JAVASCRIPT](https://developer.mozilla.org/bm/docs/Web/JavaScript)
 - Used **Javascript** (minified versions) added end of document.  
-[JQUERY](https://jquery.com/)
+[JQuery](https://jquery.com/)
 - Used **JQuery** to trigger ready() functions for datepicker, collapsible side nav bar and materialise selection functions.
 [BOOTSTRAP](http://getbootstrap.com/getting-started/)
 - Downloaded **Bootstrap** vendor files but did not make use of bootstrap developing the project. At the start, I was unsure whether to use Bootstrap or Materialise CSS, but choose and stayed with using Materialise CSS and UI throughout the project.
-[MATERIALISE CSS]((https://materializecss.com/).)
+[MATERIALISE CSS](https://materializecss.com/)
 - Materialise CSS UI was used throughout this project. I liked the look and feel of this UI, which is the same style Google use.
 [PYTHON](https://docs.python.org/3/)
 - Used Python 3.6.7 for developing this project. 
@@ -222,14 +224,11 @@ This project is developed on Heroku Platform - [DumpDinners](https://dumpdinners
 I used Heroku to deploy my project -[Heroku](https://dashboard.heroku.com)
 I set the following Configuration Variables in Heroku:-
 
-IP - 0.0.0.0,
-PORT- 5000,
-MONGO_DBNAME,
-MONGO_URI,
+IP - 0.0.0.0
+PORT- 5000
+MONGO_DBNAME
+MONGO_URI
 SECRET_KEY
-
-Sign up to Heroku platform is free and there is extensive documentation for developers. If developing a python app using Heroku, it is necessary to for the app to be detected by Heroku when deploying and the command "web: python app.py
-" is used, which is incorporated in a Procfile (P must be capitalized).
 
 ## **How to run the code in this project**
 
@@ -285,7 +284,7 @@ The content contained in the project is mainly my own and anywhere I've used any
 
 Referred to this article for help understanding how to set secret key - [SECRET_KEY)(https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key)
 
-Referred to this article for understand how to store flask sessions in dictionary - [FLASK SESSIONS] (https://stackoverflow.com/questions/44625926/using-flask-session-to-store-dict)
+Referred to this article for understand how to store flask sessions in dictionary - [FLASK SESSIONS)(Referred to this article for help understanding how to set secret key - [SECRET_KEY)(https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key))
 
 To understand how Flask Login works, referred to this - [FLASK SESSIONS)(Referred to this article for help understanding how to set secret key - [FLASK LOGIN)(https://flask-login.readthedocs.io/en/latest/)
 
