@@ -25,9 +25,16 @@
 
 
 	
-                <a href="{{ url_for('likes', recipe_id=recipe._id) }}"  
+                <strong>Like this recipe</strong><br><a href="{{ url_for('likes', recipe_id=recipe._id) }}"
                 <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-             </button>
+             	</button><br>
+<!--http://www.sharelinkgenerator.com/-->
+
+				<strong>Share this recipe</strong><br><a href="https://www.facebook.com/sharer/sharer.php?u=" class="fa fa-facebook"></a>
+				<a href="https://www.twitter.com/sharer/sharer.php?u=" class="fa fa-twitter"></a>
+				<a href="https://www.instagram.com/sharer/sharer.php?u="></a>
+				<a href="https://www.youtube.com/sharer/sharer.php?u=" class="fa fa-youtube"></a>
+
 
 
 		</footer>
