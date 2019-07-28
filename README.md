@@ -293,4 +293,4 @@ To understand how Flask Login works, referred to this - [FLASK SESSIONS)(Referre
 I received inspiration for this project from many suurces, from looking at recipe websites, to my own interest in food and cooking, to the brillian websites my fellow course mates created, some of which were truly outstanding. Also to the Slack Community of fellow students at Code Institute for anyways being there in times of need to help each other.
 
 
-Written with [StackEdit](https://stackedit.io/).
+Written with [StackEdit](https://stackedit.io/)
