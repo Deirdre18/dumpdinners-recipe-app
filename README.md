@@ -25,7 +25,7 @@ First and foremost, the user is the primary focus of creating a website. The typ
 - Working mum with kids
 - Anyone else who is interested in preparing and cooking dump meals and deserts. 
 
-From researching what a user story is, I realised it is "a tool used for Agile software development to capture a description of a software feature from an end-user perspective. The user story describes the type of user, what they want and why. A user story helps to create a simplified description of a requirement." - [What is a User Story?](https://searchsoftwarequality.techtarget.com/definition/user-story).
+From researching what a user story is, I realised it is "a tool used for Agile software development to capture a description of a software feature from an end-user perspective. The user story describes the type of user, what they want and why. A user story helps to create a simplified description of a requirement." So what exactly is a User Story - [What is a User Story?](https://searchsoftwarequality.techtarget.com/definition/user-story).
 As per previous projects I completed, for direction in UX design I referred to what I learned in the Code Institute tutorials, and also referred to this website about user experience, [Red Rocket Web Specialist](https://www.redrocketmg.com/5-planes-UX-design-great-website/), who consider that the two most important aspects of designing a good website are (1) the Abstract aspect (idea, goal, etc) and (2) the Concrete aspect (how to get a user to click on a link, etc). The transition from Abstract to Concrete should remain linear to ensure a smooth transition, with each phase being fluid and overlapping. 
 
 **Garret's 5 Planes of UX design are as follows:-**
@@ -51,13 +51,11 @@ This is the plan or flow of interactions users will take to navigate and underst
 
 ### **Skeleton**
 
-In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools (and also due to time limitations) which Baslamic provides, I created blobs using Basalmic with screenshots of different views on website, giving explanation for each. 
+In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools which Baslamic provides (and also due to time limitations), I created blobs using Basalmic with screenshots of different views of the DumpDinners website, giving a brief explanation for each view.
 
-I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Basalmic](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
+I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Basalmic - [WIREFRAMES](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
 
 ### **Surface**
-
-https://www.shutterstock.com/
 
 The surface, or the skin – is the interface for which visitors will engage with the dashboard. I kept the color scheme congruent, using complimentary colors such as blue and organge through the various website views, and used an orange gradient scheme throughout to add color to all areas of the website to enhance the look and feel of the website. I referred to this article - [CSS Background Gradient](https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm)
  
@@ -102,7 +100,7 @@ WSGI is a Web Server Gateway Interface (WSGI) for a universal interface between 
 - Jinja2
 Jinja2 is a popular templating engine for Python. A web templating system combines a template with a certain data source to render dynamic web pages. It aims to keep the core of an application simple yet extensible. 
 
-To understand more about Flask, WSGI and Jinja2, click here -[FLASK]https://www.tutorialspoint.com/flask/flask_quick_guide
+To understand more about Flask, WSGI and Jinja2, click here -[FLASK](https://www.tutorialspoint.com/flask/flask_quick_guide)
 
 ## **Tech Used**
 
@@ -112,13 +110,13 @@ To understand more about Flask, WSGI and Jinja2, click here -[FLASK]https://www.
 Base languages used to create website.
 [HTML5](https://www.html5rocks.com/en/)
 - Used **HTML5** to handle page routing and to build custom directives.
-[Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/)
+[FONT AWESOME 4.7.0](https://fontawesome.com/v4.7.0/)
 - Used **Font Awesome Icons** to give our project an intuitive 'google style' feel and look.
 [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
 - Used **CSS3** for styling and enhancing the look of the website.
 [Javascript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
 - Used **Javascript** (minified versions) added end of document.  
-[JQuery](https://jquery.com/)
+[JQUERY](https://jquery.com/)
 - Used **JQuery** to trigger ready() functions for datepicker, collapsible side nav bar and materialise selection functions.
 [BOOTSTRAP](http://getbootstrap.com/getting-started/)
 - Downloaded **Bootstrap** vendor files but did not make use of bootstrap developing the project. At the start, I was unsure whether to use Bootstrap or Materialise CSS, but choose and stayed with using Materialise CSS and UI throughout the project.
@@ -224,10 +222,10 @@ This project is developed on Heroku Platform - [DumpDinners](https://dumpdinners
 I used Heroku to deploy my project -[Heroku](https://dashboard.heroku.com)
 I set the following Configuration Variables in Heroku:-
 
-IP - 0.0.0.0
-PORT- 5000
-MONGO_DBNAME
-MONGO_URI
+IP - 0.0.0.0,
+PORT- 5000,
+MONGO_DBNAME,
+MONGO_URI,
 SECRET_KEY
 
 ## **How to run the code in this project**
