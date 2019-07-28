@@ -228,6 +228,9 @@ MONGO_DBNAME,
 MONGO_URI,
 SECRET_KEY
 
+Sign up to Heroku platform is free and there is extensive documentation for developers. If developing a python app using Heroku, it is necessary to for the app to be detected by Heroku when deploying and the command "web: python app.py
+" is used, which is incorporated in a Procfile (P must be capitalized).
+
 ## **How to run the code in this project**
 
 Below is a list of some of the technologies I installed to run DumpDinners project. I started the project initially using Cloud9 IDE for education. However, at the end of June 2019, I could no longer use Cloud9, as the service was stopped and I commenced using AWS Cloud9 Student Start Education. I therefore created a new repository in AWS and cloned the previous one. 
