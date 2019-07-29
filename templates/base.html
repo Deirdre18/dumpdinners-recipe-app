@@ -10,14 +10,14 @@
     <title>{{ title }} - DumpDinners</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    
+
     <!-- Social Share Kit CSS downloaded from https://socialsharekit.com/ -->
     <!--<link rel="stylesheet" href="assets/css/social-share-kit.css" type="text/css">-->
-   
+
     <link rel="stylesheet" href="{{url_for('static', filename='social-share-kit.css')}}" type="text/css" />
-    
+
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
-    
+
 
     <!--referred to this for favicon - https://www.flaticon.com/-->
 
@@ -196,7 +196,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <!--<script src="assets/js/social-share-kit.js"></script>-->
         <!--<script src="assets/js/social-share-kit.min.js"></script>-->
-        
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".button-collapse").sideNav();
@@ -230,7 +230,60 @@
             });
         </script>
 
+        <script>
+            // function for loading sharing window on social media - referred to https:css-tricks.com/simple-social-sharing-links
+            function socialWindow(url) {
+                var left = (screen.width - 570) / 2;
+                var top = (screen.height - 570) / 2;
+                var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
+                window.open(url, "NewWindow", params);
+            }
 
+            function setShareLinks() {
+                var pageUrl = encodeURIComponent(document.URL);
+                var tweet = encodeURIComponent(jQuery("meta[property='og:description']").attr("content"));
+
+                jQuery(".social-share.facebook").on("click", function() {
+                    url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+                    socialWindow(url);
+                });
+
+                jQuery(".social-share.twitter").on("click", function() {
+                    url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
+                    socialWindow(url);
+                });
+
+                jQuery(".social-share.linkedin").on("click", function() {
+                    url = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl;
+                    socialWindow(url);
+                })
+            }
+        </script>
+
+        <!--function to initialise social pop-ups - referred to https://socialsharekit.com/-->
+
+        <script type="text/javascript">
+            SocialShareKit.init({ forceInit: true });
+        </script>
+
+        <!--script for count function for sharing on twitter-->
+        <script type="text/javascript">
+            SocialShareKit.init({
+                selector: '.custom-parent .ssk',
+                url: 'http://my-url',
+                text: 'Share text default',
+                twitter: {
+                    url: 'http://url-for-twitter',
+                    text: 'Share text for twitter',
+                    via: 'twitter-screen-name',
+                    countCallback: function(shareUrl, onCountReady) {
+                        // Get count somewhere manually and call onCountReady() whenever you got the count.
+                        var count = 5;
+                        return onCountReady(count);
+                    }
+                }
+            });
+        </script>
 
         <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html-->
         <!--decided to make footer fixed rather than flexible-->
@@ -334,11 +387,10 @@
         <!-- Add font awesome icons -->
         <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
                 <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
-                <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
                 <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
 
 
-                </footer>
+            </div>
 </body>
 
 </html>
