@@ -137,6 +137,7 @@ def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
 
+# routing for likes
 
 @app.route('/likes/<recipe_id>')
 def likes(recipe_id):
@@ -152,8 +153,23 @@ def likes(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes1'))
 
+# routing for shares
 
-    
+@app.route('/shares/<recipe_id>')
+def shares(recipe_id):
+   
+    """Shows full recipe and increments view"""
+    mongo.db.recipes.find_one_and_update(
+        {'_id': ObjectId(recipe_id)},
+        { '$inc': { 'shares': 1}}
+        
+        
+      
+    )
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('allrecipes1'))
+
+   
     
 #Copied routing for login from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
 

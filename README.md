@@ -1,6 +1,6 @@
 # **DumpDinners Recipe App**
  
-This project is my 3rd Milestone Project for Full-Stack Diploma in Software Development. It is a Data Centric Project and the second last project for completion of this course. The project consists of Flask, MongoDB, Python, HTML5, CSS3, Materialise CSS, javascript and some Bootstrap vendor is also included, although I mainly used Materialise CSS to create it. I created a registered users and recipes collections in DumpDinners databas using MongoDB. Initially I had another collection for 'categories' but as there was an issue with this being updated when a recipe was added, I omitted using this collection but kept categories as user-input field. 
+This project is my 3rd Milestone Project for Full-Stack Diploma in Software Development. It is a Data Centric Project and the second last project for completion of this course. The project consists of Flask, MongoDB, Python, HTML5, CSS3, Materialise CSS, javascript and some Bootstrap vendor is also included, although I mainly used Materialise CSS to create it. I created a registered users and recipes collections in DumpDinners database using MongoDB. Initially I had another collection for 'categories' but as there was an issue with this being updated when a recipe was added, I omitted using this collection but kept categories as user-input field. 
 
 ## **UX Design**
 
