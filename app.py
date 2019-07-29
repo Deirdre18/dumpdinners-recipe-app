@@ -155,13 +155,13 @@ def likes(recipe_id):
 
 # routing for shares
 
-@app.route('/facebook/<recipe_id>')
-def facebook (recipe_id):
+@app.route('/shares1/<recipe_id>')
+def shares1 (recipe_id):
    
     """Shows full recipe and increments view"""
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
-        { '$inc': { 'facebook': 1}}
+        { '$inc': { 'shares1': 1}}
         
         
       
