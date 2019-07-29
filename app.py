@@ -93,7 +93,8 @@ def update_recipe(recipe_id):
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
         'views':1,
-        'likes':1
+        'likes':1,
+        'shares1':1
         }
     })
     return redirect(url_for('allrecipes'))

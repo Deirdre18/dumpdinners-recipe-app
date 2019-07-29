@@ -33,18 +33,18 @@
 		<!--also referred to this article - https://stackoverflow.com/questions/3012716/css-how-to-remove-pseudo-elements-after-before-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
 		<div class="shares">
-			<strong><p>Share on facebook</strong>&nbsp"{{ url_for('shares1', recipe_id=recipe._id) }}"</p> <a href="https://www.facebook.com/sharer/sharer.php?u="<button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<strong>Share on facebook</strong>&nbsp<a href="https://www.facebook.com/sharer/sharer.php" class="{{ url_for('shares1', recipe_id=recipe._id) }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			</button>
 			
 		</div>
 	
-		<div class="ssk-group ssk-count">
-			<strong><a href="https://www.facebook.com/sharer.php" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<!--<div class="ssk-group ssk-count">-->
+		<!--	<a href="https://www.facebook.com/sharer.php" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
 			
-			<a href="https://https://twitter.com/intent/tweet" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<a href="https://www.pinterest.com/sharer/sharer.php" class="ssk ssk-pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+		<!--	<a href="https://https://twitter.com/intent/tweet" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+		<!--	<a href="https://www.pinterest.com/sharer/sharer.php" class="ssk ssk-pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
 		
-		</div>
+		<!--</div>-->
 
 		
 
