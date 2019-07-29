@@ -230,67 +230,63 @@
             });
         </script>
 
-        <script>
-            // function for loading sharing window on social media - referred to https:css-tricks.com/simple-social-sharing-links
-            function socialWindow(url) {
-                var left = (screen.width - 570) / 2;
-                var top = (screen.height - 570) / 2;
-                var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
-                window.open(url, "NewWindow", params);
-            }
+        <!--<script>-->
+            <!--// function for loading sharing window on social media - referred to https:css-tricks.com/simple-social-sharing-links-->
+        <!--    function socialWindow(url) {-->
+        <!--        var left = (screen.width - 570) / 2;-->
+        <!--        var top = (screen.height - 570) / 2;-->
+        <!--        var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;-->
+        <!--        window.open(url, "NewWindow", params);-->
+        <!--    }-->
 
-            function setShareLinks() {
-                var pageUrl = encodeURIComponent(document.URL);
-                var tweet = encodeURIComponent(jQuery("meta[property='og:description']").attr("content"));
+        <!--    function setShareLinks() {-->
+        <!--        var pageUrl = encodeURIComponent(document.URL);-->
+        <!--        var tweet = encodeURIComponent(jQuery("meta[property='og:description']").attr("content"));-->
 
-                jQuery(".social-share.facebook").on("click", function() {
-                    url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
-                    socialWindow(url);
-                });
+        <!--        jQuery(".social-share.facebook").on("click", function() {-->
+        <!--            url = "https://www.facebook.com/sharer.php?u=" + pageUrl;-->
+        <!--            socialWindow(url);-->
+        <!--        });-->
 
-                jQuery(".social-share.twitter").on("click", function() {
-                    url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
-                    socialWindow(url);
-                });
+        <!--        jQuery(".social-share.twitter").on("click", function() {-->
+        <!--            url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;-->
+        <!--            socialWindow(url);-->
+        <!--        });-->
 
-                jQuery(".social-share.linkedin").on("click", function() {
-                    url = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl;
-                    socialWindow(url);
-                })
-            }
-        </script>
+        <!--        jQuery(".social-share.linkedin").on("click", function() {-->
+        <!--            url = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl;-->
+        <!--            socialWindow(url);-->
+        <!--        })-->
+        <!--    }-->
+        <!--</script>-->
 
         <!--function to initialise social pop-ups - referred to https://socialsharekit.com/-->
 
-        <script type="text/javascript">
-            SocialShareKit.init({ forceInit: true });
-        </script>
+        <!--<script type="text/javascript">-->
+        <!--    SocialShareKit.init({ forceInit: true });-->
+        <!--</script>-->
 
         <!--script for count function for sharing on twitter-->
-        <script type="text/javascript">
-            SocialShareKit.init({
-                selector: '.custom-parent .ssk',
-                url: 'http://my-url',
-                text: 'Share text default',
-                twitter: {
-                    url: 'http://url-for-twitter',
-                    text: 'Share text for twitter',
-                    via: 'twitter-screen-name',
-                    countCallback: function(shareUrl, onCountReady) {
-                        // Get count somewhere manually and call onCountReady() whenever you got the count.
-                        var count = 5;
-                        return onCountReady(count);
-                    }
-                }
-            });
-        </script>
+        <!--<script type="text/javascript">-->
+        <!--    SocialShareKit.init({-->
+        <!--        selector: '.custom-parent .ssk',-->
+        <!--        url: 'http://my-url',-->
+        <!--        text: 'Share text default',-->
+        <!--        twitter: {-->
+        <!--            url: 'http://url-for-twitter',-->
+        <!--            text: 'Share text for twitter',-->
+        <!--            via: 'twitter-screen-name',-->
+        <!--            countCallback: function(shareUrl, onCountReady) {-->
+                        <!--// Get count somewhere manually and call onCountReady() whenever you got the count.-->
+        <!--                var count = 5;-->
+        <!--                return onCountReady(count);-->
+        <!--            }-->
+        <!--        }-->
+        <!--    });-->
+        <!--</script>-->
 
         <!--to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html-->
         <!--decided to make footer fixed rather than flexible-->
-
-
-
-
 
         <style>
             .footer {
