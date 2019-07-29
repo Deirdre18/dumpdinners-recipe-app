@@ -81,16 +81,12 @@ All typography was in English but as Google has a translator, can be easily tran
 ### **Features Left to Implement**
 - Unfortunately I did not get time to add a user dashboard, for example showing all recipes 'Liked' or recipes viewed. I had hoped possibly to be able to get this done but unfortunately I ran out of time. 
 - I had hoped to add flask messaging for users who want to delete a recipe they added, with a 'danger' message (ie) "Do you really want to delete this message, as this action is irreversible?". Unfortunately I did not get time to do this. 
-- I had hoped to improve my search button feature to allow for searching recipes by category (ie) to have category options for searching (vegetarian, chicken, meat, french cusine, desert, fish). However, again there wasn't time to do this, as I approach the submit deadline for this project. 
+- I had hoped to improve my search button feature to show options with checkboxes for searching under 'recipe_name', 'ingredients', 'category (vegetarian, fish, meat, etc). However, again there wasn't time to do this, as I approach the submit deadline for this project. 
 - Had hoped to add a 'back button' to web pages, and not sure if I will have time to do so, to increase ease of navigation. The website is easy to navigate however. 
 - Was a little disappointed in testing on mobile devices to find images skewed to the left on certain mobile devices, however not on others. I did intend to fix this by adding media queries, but as deadline to submit is within next day or so, I am not sure if I will get around to this. 
 - Similarily to above, I had hoped to add an 'About Page' detailing the idea behind DumpDinners website and contact page, but again time is limited.
 - Recipes are displayed showing ingredients and methods in paragraph format, separated by bullet points, rather than on single lines. I used - 'pre-wrap': 'normal' for this. Ideally I would've preferred that the contents of the recipe were listed singularly but I had a lot of work to do developing the website, and I didn't focus too much on this aspect. My main purpose was to build a website that looked and felt good to use, and was functional, even if only basic functions. The important thing I remembered was that functions like CRUD could be carried out with minimum of ease. 
 - Login security features was handled by importing 'from werkzeug.security import generate_password_hash, check_password_hash'. However I did not install flask bycrypt, so users could create any password and didn't have to be composed of numbers/special characters/letters, etc. 
-
-
-
-
 ### **Flask**
 
 - What is Flask?
@@ -102,12 +98,12 @@ WSGI is a Web Server Gateway Interface (WSGI) for a universal interface between 
 - Jinja2
 Jinja2 is a popular templating engine for Python. A web templating system combines a template with a certain data source to render dynamic web pages. It aims to keep the core of an application simple yet extensible. 
 
-To understand more about Flask, WSGI and Jinja2, click here -[FLASK]https://www.tutorialspoint.com/flask/flask_quick_guide
+To understand more about Flask, WSGI and Jinja2, click here -[FLASK](https://www.tutorialspoint.com/flask/flask_quick_guide)
 
 ## **Tech Used**
 
 ### **Technologies used includes:**
-- **HTML5**, **CSS3**, **Javascript**, **JQuery**, **Materialise CSS**, **Python**, **Flask** **Flask Py_Mongo**, *MongoDB** 
+- **HTML5**, **CSS3**, **Javascript**, **JQuery**, **Materialise CSS**, **Python**, **Flask** **Flask Py_Mongo**, **MongoDB** 
 
 Base languages used to create website.
 
@@ -143,8 +139,7 @@ Used Mongo DB (mLab) for this project - [MONGO DB](https://mlab.com/)
 
 Flask uses 'flash' messaging' for messages to appear when the user performs a task (such as adding a recipe or logging out). The following flask messages were tested, as was the underlying function (adding recipe, logging out) to ensure CRUD functions worked properly and the user was able to perform these functions. When a user first views DumpDinners website they can only view 4 recipes on the home page. Those recipes can be viewed further by clicking the 'More' button and the recipe ingredients and methods shown. The user can 'Like' any or all of the 4 recipes. The 'Likes' will be incremented in the registered user collection in MongoDB, and shows on the recipe summary (ie) the view the user sees before clicking on 'More'. Any user can view only 4 recipes (and 'Like') without having to login or register. However to view the full range of recipes, and be able to add their own recipe (as well as edit and delete), users MUST login or register. The website is correctly routed using Flask (app.py) routing to correctly route users to whichever page they wish to view. User and non-user views were tested across many pages and functions to ensure they worked correctly, and fellow student from Code Institute was asked also to test, which they did. 
 
-In addition, I tested all links to make sure they redirected correctly and worked, such as url for home page and all recipes page. 
-I also tested responsiveness on mobile versions by clicking on links in responsive view. I tested search feature, to make sure the search button functions correctly and it does. I also tested this across mobile versions and works correctly. 
+In addition, I tested all links to make sure they redirected correctly and worked, such as url for home page and all recipes page. I also tested responsiveness on mobile versions by clicking on links in responsive view. I tested search feature, to make sure the search button functions correctly and it does. I also tested this across mobile versions and works correctly. 
 
 Flash messages were shown for the following:-
 
@@ -229,6 +224,9 @@ PORT- 5000
 MONGO_DBNAME
 MONGO_URI
 SECRET_KEY
+
+Sign up to Heroku platform is free and there is extensive documentation for developers. If developing a python app using Heroku, it is necessary to for the app to be detected by Heroku when deploying and the command "web: python app.py
+" is used, which is incorporated in a Procfile (P must be capitalized).
 
 ## **How to run the code in this project**
 
