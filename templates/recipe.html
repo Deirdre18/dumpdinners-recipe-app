@@ -34,9 +34,9 @@
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
 	
 		<div class="ssk-group ssk-count">
-			<a href="https://www.facebook.com/sharer.php" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="https://https://twitter.com/intent/tweet" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<strong>Share recipe</strong><br>"{{ url_for('facebook', recipe_id=recipe._id) }}"<a href="https://www.facebook.com/sharer.php" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			
+			<a href="https://https://twitter.com/intent/tweet" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			<a href="https://www.pinterest.com/sharer/sharer.php" class="ssk ssk-pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
 		
 		</div>
