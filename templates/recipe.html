@@ -3,8 +3,7 @@
 	
 	
 	{% for message in messages %}<br>
-	{{ message }}</strong>
-	{% endfor %}
+	{{ message }}</strong> {% endfor %}
 </ul>
 {% endif %} {% endwith %}
 
@@ -17,27 +16,37 @@
 					<h2 class="text-uppercase">RECIPE</h2>
 
 
-					
+
 					<!--rate recipe-->
 				</div>
 			</div>
 		</div>
 
+		<div>
+			<!--http://www.sharelinkgenerator.com/-->
+			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+			</button><br>
+		</div>
 
+		<!--referred to this site for help with sharing recipe on social media - https://socialsharekit.com/-->
+		<!--http://www.sharelinkgenerator.com/-->
+		<!--also referred to this article - https://stackoverflow.com/questions/3012716/css-how-to-remove-pseudo-elements-after-before-->
 	
-                <strong>Like this recipe</strong><br><a href="{{ url_for('likes', recipe_id=recipe._id) }}"
-                <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-             	</button><br>
-<!--http://www.sharelinkgenerator.com/-->
+		<div class="ssk-group ssk-count">
+			<a href="https://www.facebook.com/sharer/sharer.php?u=" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="https://www.twitter.com/sharer/sharer.php?u=" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://www.pinterest.com/sharer/sharer.php?u=" class="ssk ssk-pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+			<a href="https://www.youtube.com/sharer/sharer.php?u=" class="ssk ssk-youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+		</div>
 
-				<strong>{{ url_for('shares', recipe_id=recipe._id) }} Share this recipe</strong><br><a href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook" ></a></i>
-				<a href="https://www.twitter.com/sharer/sharer.php?u="><i class="fa fa-twitter"></a></i>
-				<a href="https://www.instagram.com/sharer/sharer.php?u="></a>
-				<a href="https://www.youtube.com/sharer/sharer.php?u="><i class="fa fa-youtube"></a></i>
+		<!--<strong>{{ url_for('shares', recipe_id=recipe._id) }}Share this recipe</strong><br><a href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook" ></a></i>-->
+		<!--<a href="https://www.twitter.com/sharer/sharer.php?u="><i class="fa fa-twitter"></a></i>-->
+		<!--<a href="https://www.instagram.com/sharer/sharer.php?u="></a>-->
+		<!--<a href="https://www.youtube.com/sharer/sharer.php?u="><i class="fa fa-youtube"></a></i>-->
 
 
 
-		</footer>
+
 		<div class="row" style="text-align:center"></div>
 		<h3><em>{{recipe.recipe_name}}</em></h3>
 
