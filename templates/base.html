@@ -28,11 +28,9 @@
         body {
             font-family: Arial;
         }
-
         * {
             box-sizing: border-box;
         }
-
         form.example input[type=text] {
             padding: 5px;
             font-size: 11px;
@@ -42,7 +40,6 @@
             height: 1%;
             background: #f1f1f1;
         }
-
         form.example button {
             float: left;
             width: 2%;
@@ -55,11 +52,9 @@
             border-left: none;
             cursor: pointer;
         }
-
         form.example button:hover {
             background: #0b7dda;
         }
-
         form.example::after {
             content: "";
             clear: both;
@@ -77,11 +72,8 @@
         .pattern {
             min-height: 100px;
         }
-
         #stripes4 {
-
             background-image: repeating-linear-gradient(45deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px, orangered);
-
         }
     </style>
 
@@ -170,13 +162,17 @@
 
                     <div class="search-container">
 
-                        <h6 class="lead-search" style="color:orangered; text-align:left"><strong>Search for your favorite Dump Recipe!</strong></h6>
-                        <form class="example" action="{{ url_for('search') }}">
-                            <input type="text" placeholder="Enter Keyword or Recipe Name.." required name="query" style="margin-top:1px; width:40%; height:3em !important; color:black">
+                         <h6 class="lead-search" style="color:orangered; text-align:left"><strong>Search by Recipe Name, Ingredients, Category or Username</strong></h6>
+                       
+                          
+                         <form class="example" action="{{ url_for('search') }}">
+                            <input type="text" placeholder="Search by Recipe Name, Ingredients, Category or Username..." required name="query" style="margin-top:1px; width:40%; height:3em !important;style="color:black">
                             <div id="search">
-                                <button type="submit" style="margin-top:1px; width:25%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">Search</i></button>
+                                <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">Search</i></button>
                             </div>
-                        </form>
+                         
+                            </form>
+                      
                     </div>
 
 
@@ -243,11 +239,9 @@
                 background-color: blue;
                 color: white;
             }
-
             main {
                 flex: 1 0 auto;
             }
-
             .container {
                 margin-top: 15px;
                 margin-bottom: 3px;
@@ -266,46 +260,35 @@
                 border-radius: 50%;
                 height: 30px;
             }
-
             .fa:hover {
                 opacity: 0.7;
-
             }
-
             .fa-facebook {
                 background: #3B5998;
                 color: white;
                 text-align: center;
             }
-
             .fa-twitter {
                 background: #55ACEE;
                 color: white;
                 text-align: center;
             }
-
-
             .fa-youtube {
                 background: #bb0000;
                 color: white;
                 text-align: center;
             }
-
             .fa-pinterest {
                 background: #cb2027;
                 color: white;
                 text-align: center;
             }
-
             .fa-github {
                 background: black;
                 color: white;
                 text-align: center;
                 font-size: 15px;
-
-
             }
-
             strong {
                 font-weight: bold;
             }
@@ -335,3 +318,5 @@
 </body>
 
 </html>
+
+
