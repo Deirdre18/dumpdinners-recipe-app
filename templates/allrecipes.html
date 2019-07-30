@@ -16,11 +16,7 @@
 
             </div>
         </div>
-        Views: <i class="fa fa-eye" aria-hidden="true" style="color: blue">&nbsp{{recipe.views}}</i> <br> 
-        Likes: <i class="fa fa-heart" aria-hidden="true" style="color: red">{{recipe.likes}}&nbsp</i><br> 
-        <i class="fa fa-facebook" aria-hidden="true" style="color: blue"></i>&nbsp{{recipe.shares1}}
-        <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i>&nbsp{{recipe.shares2}}
-
+        Views: <i class="fa fa-eye" aria-hidden="true" style="color: blue">&nbsp{{recipe.views}}</i> <br> Likes: <i class="fa fa-heart" aria-hidden="true" style="color: red">{{recipe.likes}}&nbsp</i><br>&nbsp <strong>Recipe Category</strong>: {{recipe.category_name}}
 
 
         <div class="card-image">
@@ -32,10 +28,14 @@
 
             <p id="short_description"></p><strong><em>{{recipe.short_description}}</strong></em>
             </p>
+              <p class="invite to share on social media">Share this recipe!
+                <i class="fa fa-facebook" aria-hidden="true" style="color: blue"></i>
+                <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i></p>
         </div>
 
         <div class="card-footer">
 
+          
 
             <div class="card-action">
                 <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More

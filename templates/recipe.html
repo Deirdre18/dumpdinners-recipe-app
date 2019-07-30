@@ -28,20 +28,23 @@
 			</button><br>
 		</div>
 
-		
+
 		<!--http://www.sharelinkgenerator.com/-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
 		<div class="shares">
 
-			<ul>
-				<li><strong>Share on Facebook</strong>&nbsp<a href="{{ url_for('shares1', recipe_id=recipe._id) }}" href="https://www.facebook.com/sharer.php?..." ><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				</li>
-				
-				<li><strong>Share on Twitter</strong>&nbsp<a href="{{ url_for('shares2', recipe_id=recipe._id) }}" href="https://twitter.com/intent/tweet?..." ><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				</li>
-				
-		</div>
+		
+					<strong>Share this recipe!</strong>&nbsp
+					
+						<a href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp
 			
+					
+						<a href="https://twitter.com/intent/tweet"><i class="fa fa-twitter"  aria-hidden="true"></i></a>
+			
+		</div>
+
+
+
 		<div class="row" style="text-align:center"></div>
 		<h3><em>{{recipe.recipe_name}}</em></h3>
 

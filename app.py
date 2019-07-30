@@ -93,8 +93,8 @@ def update_recipe(recipe_id):
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
         'views':1,
-        'likes':1,
-        'shares1':1
+        'likes':1
+        
         }
     })
     return redirect(url_for('allrecipes'))
@@ -154,35 +154,49 @@ def likes(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes1'))
 
-# routing for shares
+# # routing for shares
 
-@app.route('/shares1/<recipe_id>')
-def shares1 (recipe_id):
+# # @app.route('/shares1/<recipe_id>')
+# # def shares1 (recipe_id):
    
-    """Shows full recipe and increments view"""
-    mongo.db.recipes.find_one_and_update(
-        {'_id': ObjectId(recipe_id)},
-        { '$inc': { 'shares1': 1}}
+# #     """Shows full recipe and increments view"""
+# #     mongo.db.recipes.find_one_and_update(
+# #         {'_id': ObjectId(recipe_id)},
+# #         { '$inc': { 'shares1': 1}}
         
         
       
-    )
-    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('allrecipes1'))
+#     )
+#     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+#     return redirect(url_for('allrecipes1'))
 
-@app.route('/shares2/<recipe_id>')
-def shares2 (recipe_id):
+# @app.route('/shares2/<recipe_id>')
+# def shares2 (recipe_id):
    
-    """Shows full recipe and increments view"""
-    mongo.db.recipes.find_one_and_update(
-        {'_id': ObjectId(recipe_id)},
-        { '$inc': { 'shares2': 1}}
+#     """Shows full recipe and increments view"""
+#     mongo.db.recipes.find_one_and_update(
+#         {'_id': ObjectId(recipe_id)},
+#         { '$inc': { 'shares2': 1}}
         
         
       
-    )
-    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('allrecipes1'))
+#     )
+#     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+#     return redirect(url_for('allrecipes1'))
+    
+# @app.route('/shares2/<recipe_id>')
+# def shares2 (recipe_id):
+   
+#     """Shows full recipe and increments view"""
+#     mongo.db.recipes.find_one_and_update(
+#         {'_id': ObjectId(recipe_id)},
+#         { '$inc': { 'shares2': 1}}
+        
+        
+      
+#     )
+#     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+#     return redirect(url_for('shares2'))
 
       
     
