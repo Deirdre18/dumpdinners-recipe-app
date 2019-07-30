@@ -25,56 +25,57 @@
 		<div>
 			<!--http://www.sharelinkgenerator.com/-->
 			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-			</button><br>
+			</button><br><br>
 		</div>
 
 
 		<!--http://www.sharelinkgenerator.com/-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
-		<div class="shares">
+		<h6 class="shares-recipe"><strong> <strong>Share this recipe!</strong></h6>
+		<a href="https://www.facebook.com/sharer.php?u=" <i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<a href="https://twitter.com/intent/tweet" <i class="fa fa-twitter" aria-hidden="true"></i></a>
 
-		
-					<strong>Share this recipe!</strong>&nbsp
-					
-						<a href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp
-			
-					
-						<a href="https://twitter.com/intent/tweet"><i class="fa fa-twitter"  aria-hidden="true"></i></a>
-			
+
+</div>
+
+
+<!--<h6 class="view-and-share"><strong> View and Share!</strong>-->
+<!--</h6>-->
+<!--<p class=shares "col s4 m3 l3" style="white-space:normal">-->
+
+<!--	<i class="fa fa-facebook" aria-hidden="true"></i>-->
+<!--	<i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i>-->
+<!--</p>-->
+
+
+
+<div class="row" style="text-align:center"></div>
+<h3><em>{{recipe.recipe_name}}</em></h3>
+
+<div row="recipe">
+
+	<div class="col s12 m12 l12">
+		<img src="{{ recipe.image }}" alt="image" height=300 width=285>
+
+		<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
+
+		<div class="ingredients col s12 m6 l6" style="white-space:normal">
+			<h3>Ingredients</h3>
+
+			{{ recipe.ingredients }}
 		</div>
 
+		<div class="methods col s12 m6 l6" style="white-space:normal">
+			<h3>Methods</h3>
 
+			{{ recipe.methods }}
 
-		<div class="row" style="text-align:center"></div>
-		<h3><em>{{recipe.recipe_name}}</em></h3>
-
-		<div row="recipe">
-
-			<div class="col s12 m12 l12">
-				<img src="{{ recipe.image }}" alt="image" height=300 width=285>
-
-				<!--referred to https://stackoverflow.com/questions/41081380/white-space-pre-not-working-as-expected-->
-
-				<div class="ingredients col s12 m6 l6" style="white-space:normal">
-					<h3>Ingredients</h3>
-
-					{{ recipe.ingredients }}
-				</div>
-
-				<div class="methods col s12 m6 l6" style="white-space:normal">
-					<h3>Methods</h3>
-
-					{{ recipe.methods }}
-
-				</div>
-
-				<p><strong>Submitted by:<strong>{{ recipe.username }} |  <strong>Date:</strong> {{recipe.date_added}}</p>
-
-
-
-
-			</div>
 		</div>
+
+		<p><strong>Submitted by:<strong>{{ recipe.username }} |  <strong>Date:</strong> {{recipe.date_added}}</p>
+
+	</div>
+</div>
 
 </div>
 

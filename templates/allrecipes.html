@@ -16,7 +16,8 @@
 
             </div>
         </div>
-        Views: <i class="fa fa-eye" aria-hidden="true" style="color: blue">&nbsp{{recipe.views}}</i> <br> Likes: <i class="fa fa-heart" aria-hidden="true" style="color: red">{{recipe.likes}}&nbsp</i><br>&nbsp <strong>Recipe Category</strong>: {{recipe.category_name}}
+        <strong>Views:</strong><i class="fa fa-eye" aria-hidden="true" style="color:blue;font-size: 20px">&nbsp{{recipe.views}}</i> <br> <strong>Likes:</strong><i class="fa fa-heart" aria-hidden="true" style="color:red; font-size: 20px">&nbsp{{recipe.likes}}</i><br>
+        <strong>Category</strong><i class="fa fa-cutlery"aria-hidden="true" style="color:blue;font-size: 20px"></i> {{recipe.category_name}}
 
 
         <div class="card-image">
@@ -24,18 +25,24 @@
         </div>
 
 
-        <div class="card-body">
+        <div class="card-body" style="white-space:normal">
 
             <p id="short_description"></p><strong><em>{{recipe.short_description}}</strong></em>
             </p>
-              <p class="invite to share on social media">Share this recipe!
-                <i class="fa fa-facebook" aria-hidden="true" style="color: blue"></i>
-                <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i></p>
+
         </div>
 
-        <div class="card-footer">
+        <h6 class="view-and-share"><strong> View and Share!</strong>
+        </h6>
+        <p class=shares "col s4 m3 l3" style="white-space:normal">
 
-          
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i>
+        </p>
+
+        <div class="card-footer" style="white-space:normal">
+
+
 
             <div class="card-action">
                 <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More
