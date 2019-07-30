@@ -28,41 +28,20 @@
 			</button><br>
 		</div>
 
-		<!--referred to this site for help with sharing recipe on social media - https://socialsharekit.com/-->
+		
 		<!--http://www.sharelinkgenerator.com/-->
-		<!--also referred to this article - https://stackoverflow.com/questions/3012716/css-how-to-remove-pseudo-elements-after-before-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
 		<div class="shares">
 
 			<ul>
-				<li><strong>Share on facebook</strong>&nbsp<a href="{{ url_for('shares1', recipe_id=recipe._id) }}" href="https://www.facebook.com/sharer.php?..." ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<li><strong>Share on Facebook</strong>&nbsp<a href="{{ url_for('shares1', recipe_id=recipe._id) }}" href="https://www.facebook.com/sharer.php?..." ><i class="fa fa-facebook" aria-hidden="true"></i></a>
 				</li>
 				
-				<!--<li><a href="https://twitter.com/intent/tweet?..." target="blank" rel="noopener noreferrer"><img src="twitter-icon.png" alt="Share Page on Twitter" />{{ url_for('shares1', recipe_id=recipe._id) }}Share on Twitter</a></li>-->
-			</div>
+				<li><strong>Share on Twitter</strong>&nbsp<a href="{{ url_for('shares2', recipe_id=recipe._id) }}" href="https://twitter.com/intent/tweet?..." ><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				
+		</div>
 			
-			<!--<ul>-->
-			<!--	<li class="social-share facebook" "{{ url_for('shares1', recipe_id=recipe._id) }}"><img src="facebook-icon.png" alt="Share Page on Facebook" /></li>-->
-			<!--	<li class="social-share twitter" "{{ url_for('shares1', recipe_id=recipe._id) }}"><img src="twitter-icon.png" alt="Share Page on Twitter" /></li>-->
-			<!--	<li class="social-share pinterest" "{{ url_for('shares1', recipe_id=recipe._id) }}"><img src="pinterest-icon.png" alt="Share Page on Pinterest" /></li>-->
-			<!--</ul>-->
-			<!--{{ url_for('shares1', recipe_id=recipe._id) }}<a href="https://www.facebook.com/sharer/sharer.php?u="><i class="fa fa-facebook" aria-hidden="true"><strong>Share on Facebook</strong></i></a>-->
-			<!--</button>-->
-
-	
-
-		<!--<div class="ssk-group ssk-count">-->
-		<!--	<a href="https://www.facebook.com/sharer.php" class="ssk ssk-facebook" ><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-
-		<!--	<a href="https://https://twitter.com/intent/tweet" class="ssk ssk-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-		<!--	<a href="https://www.pinterest.com/sharer/sharer.php" class="ssk ssk-pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
-
-		<!--</div>-->
-
-
-
-
-
 		<div class="row" style="text-align:center"></div>
 		<h3><em>{{recipe.recipe_name}}</em></h3>
 

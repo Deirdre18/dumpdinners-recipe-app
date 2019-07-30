@@ -170,7 +170,21 @@ def shares1 (recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes1'))
 
+@app.route('/shares2/<recipe_id>')
+def shares2 (recipe_id):
    
+    """Shows full recipe and increments view"""
+    mongo.db.recipes.find_one_and_update(
+        {'_id': ObjectId(recipe_id)},
+        { '$inc': { 'shares2': 1}}
+        
+        
+      
+    )
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('allrecipes1'))
+
+      
     
 #Copied routing for login from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
 
