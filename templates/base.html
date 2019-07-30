@@ -10,14 +10,8 @@
     <title>{{ title }} - DumpDinners</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-    <!-- Social Share Kit CSS downloaded from https://socialsharekit.com/ -->
-    <!--<link rel="stylesheet" href="assets/css/social-share-kit.css" type="text/css">-->
-
     <link rel="stylesheet" href="{{url_for('static', filename='social-share-kit.css')}}" type="text/css" />
-
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
-
 
     <!--referred to this for favicon - https://www.flaticon.com/-->
 
@@ -162,43 +156,35 @@
 
                     <div class="search-container">
 
-                         <h6 class="lead-search" style="color:orangered; text-align:left"><strong>Search by Recipe Name, Ingredients, Category or Username</strong></h6>
+                         <h6 class="lead-search" style="background-color:orangered; color:blue; text-align:left"><strong><i><i class="fa fa-cutlery" style="font-size: 15px"></i>Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time.....</i></strong><i class="fa fa-cutlery" style="font-size: 15px"></i></h6><br>
                        
                           
                          <form class="example" action="{{ url_for('search') }}">
-                            <input type="text" placeholder="Search by Recipe Name, Ingredients, Category or Username..." required name="query" style="margin-top:1px; width:40%; height:3em !important;style="color:black">
+                            <input type="text" placeholder="Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time...." required name="query" style="margin-top:1px; width:40%; height:3em !important" style="color:black">
                             <div id="search">
-                                <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">Search</i></button>
+                                <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">&nbspSearch</i></button>
                             </div>
                          
                             </form>
                       
                     </div>
-
-
                 </div>
             </div>
             <!--Referred to this link for adding photos dynamically. https://stackoverflow.com/questions/40877272/jinja2-not-displaying-the-images-->
-
-
         </div>
-
         <div id="stripes4" class="pattern">
             {% block content %}{% endblock %}
         </div>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <!--<script src="assets/js/social-share-kit.js"></script>-->
         <!--<script src="assets/js/social-share-kit.min.js"></script>-->
-
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".button-collapse").sideNav();
             });
         </script>
-
         <script type="text/javascript">
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
@@ -209,26 +195,19 @@
                 closeOnSelect: false // Close upon selecting a date,
             });
         </script>
-
-
         <script>
             $(document).ready(function() {
                 $('.parallax').parallax();
             });
         </script>
-
         <!-- jquery to activate buttons -->
-
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.collapsible').collapsible();
                 $('select').material_select();
             });
         </script>
-
-
         <!--// to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html // decided to make footer fixed rather than flexible-->
-
         <style>
             .footer {
                 margin-top: 1px;
@@ -247,9 +226,6 @@
                 margin-bottom: 3px;
             }
         </style>
-
-
-
         <style>
             .fa {
                 padding: 10px;
@@ -293,30 +269,18 @@
                 font-weight: bold;
             }
         </style>
-
-
-
         <div class="footer">
-
             <div class="container">
                 <!--created blank spaces, referred to https://www.computerhope.com/jargon/n/nbsp.htm-->
-                © 2019 Created with Code and Materialise&nbsp| Deirdre Weldon <a href="https://github.com/Deirdre18" class="fa fa-github"></a> |&nbsp
+                © 2019 Created with Code and Materialise&nbsp| Deirdre Weldon <a href="https://github.com/" class="fa fa-github"></a> |&nbsp
                 <a href="https://dumpdinners-recipe-app.herokuapp.com/" style="color:orangered; text-decoration: underline">DumpDinners Website
         </div>
-
         <!--for social media icons and styles referred to https://www.w3schools.com/howto/howto_css_social_media_buttons.asp    -->
-
-
-
         <!-- Add font awesome icons -->
         <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
                 <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
                 <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
-
-
+                <a href="https://plus.google.com/" class="fa fa-google-plus" style="font-size:30px; color:red"></a>
             </div>
 </body>
-
 </html>
-
-

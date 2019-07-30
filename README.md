@@ -51,9 +51,9 @@ This is the plan or flow of interactions users will take to navigate and underst
 
 ### **Skeleton**
 
-In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools (and also due to time limitations) which Baslamic provides, I created blobs using Basalmic with screenshots of different views on website, giving explanation for each. 
+In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools (and also due to time limitations) which Baslamic provides, I created blobs using Baslamiq with screenshots of different views on website, giving explanation for each. 
 
-I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Basalmic](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
+I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Baslamiq](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
 
 ### **Surface**
 
@@ -81,10 +81,8 @@ All typography was in English but as Google has a translator, can be easily tran
 ### **Features Left to Implement**
 - Unfortunately I did not get time to add a user dashboard, for example showing all recipes 'Liked' or recipes viewed. I had hoped possibly to be able to get this done but unfortunately I ran out of time. 
 - I had hoped to add flask messaging for users who want to delete a recipe they added, with a 'danger' message (ie) "Do you really want to delete this message, as this action is irreversible?". Unfortunately I did not get time to do this. 
-- I had hoped to improve my search button feature to show options with checkboxes for searching under 'recipe_name', 'ingredients', 'category (vegetarian, fish, meat, etc). However, again there wasn't time to do this, as I approach the submit deadline for this project. 
 - Had hoped to add a 'back button' to web pages, and not sure if I will have time to do so, to increase ease of navigation. The website is easy to navigate however. 
-- Was a little disappointed in testing on mobile devices to find images skewed to the left on certain mobile devices, however not on others. I did intend to fix this by adding media queries, but as deadline to submit is within next day or so, I am not sure if I will get around to this. 
-- Similarily to above, I had hoped to add an 'About Page' detailing the idea behind DumpDinners website and contact page, but again time is limited.
+- I had hoped to add an 'About Page' detailing the idea behind DumpDinners website and contact page, but again time is limited.
 - Recipes are displayed showing ingredients and methods in paragraph format, separated by bullet points, rather than on single lines. I used - 'pre-wrap': 'normal' for this. Ideally I would've preferred that the contents of the recipe were listed singularly but I had a lot of work to do developing the website, and I didn't focus too much on this aspect. My main purpose was to build a website that looked and felt good to use, and was functional, even if only basic functions. The important thing I remembered was that functions like CRUD could be carried out with minimum of ease. 
 - Login security features was handled by importing 'from werkzeug.security import generate_password_hash, check_password_hash'. However I did not install flask bycrypt, so users could create any password and didn't have to be composed of numbers/special characters/letters, etc. 
 ### **Flask**

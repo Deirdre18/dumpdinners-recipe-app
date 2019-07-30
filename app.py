@@ -119,64 +119,12 @@ def search():
             {'recipe_name': query},
             {'ingredients': query},
             {'recipe_name': query},
-            {'category_name': query}
+            {'category_name': query},
+            {'calories': query},
+            {'cooking_time': query}
         ]
     })
     return render_template('search.html', query=orig_query, results=results)
-
-# @app.route('/search', methods=['GET', 'POST'])
-# def find_recipes():
-#     """ Find recipes route from Index page search box and checkboxes """
-#     orig_query = request.args['query']
-#     users = mongo.db.register
-#     query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-#     results = mongo.db.recipes.find({
-#         '$or': [
-#             {'recipe_name': query},
-#             {'ingredients': query},
-#             {'recipe_name': query},
-#             {'category_name': query}
-#         ]
-#     })
-   
-#     if request.method == 'POST':
-#         search_text = request.form.get("search_text")
-#         checkboxes = request.form.getlist("check")
-#         # Search textbox (if empty, else text) with no checkboxes checked
-#         if len(checkboxes) == 0:
-#             if search_text == "":
-#                 cursor = mongo.db.recipes.find().sort([("like_count", -1)])
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#             else:
-#                 cursor = mongo.db.recipes.find({"$text": {"$search": search_text}}).sort([("like_count", -1)])
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#         # Search textbox (if empty, else text) with one checkbox checked        
-#         elif len(checkboxes) == 1:
-#             if search_text == "":
-#                 cursor = mongo.db.recipes.find({checkboxes[0]: True})
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#             else:
-#                 cursor = mongo.db.recipes.find({"$and": [{"$text": {"$search": search_text}}, {checkboxes[0]: True}]}).sort([("like_count", -1)])
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#         # Search textbox (if empty, else text) with two checkboxes checked        
-#         elif len(checkboxes) == 2:
-#             if search_text == "":
-#                 cursor = mongo.db.recipes.find({"$and": [{checkboxes[0]: True}, {checkboxes[1]: True}]}).sort([("like_count", -1)])
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#             else:
-#                 cursor = mongo.db.recipes.find({"$and": [{"$text": {"$search": search_text}}, {checkboxes[0]: True}, {checkboxes[1]: True}]}).sort([("like_count", -1)]) 
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#         # Search textbox (if empty, else text) with three checkboxes checked        
-#         elif len(checkboxes) == 3:
-#             if search_text == "":
-#                 cursor = mongo.db.recipes.find({"$and": [{checkboxes[0]: True}, {checkboxes[1]: True}, {checkboxes[2]: True}]}).sort([ ("like_count", -1)])
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-#             else:
-#                 cursor = mongo.db.recipes.find({"$and": [{"$text": {"$search": search_text}}, {checkboxes[0]: True}, {checkboxes[1]: True}, {checkboxes[2]: True}]}).sort([("like_count", -1)]) 
-#                 matching_recipes = [matching_recipe for matching_recipe in cursor]
-       
-#                 return render_template('search.html', query=orig_query, results=results)
-
 
 
 @app.route('/recipe/<recipe_id>')
