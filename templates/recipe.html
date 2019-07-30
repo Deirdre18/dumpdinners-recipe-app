@@ -20,18 +20,20 @@
 		<div>
 			<!--http://www.sharelinkgenerator.com/-->
 			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-			</button><br>
+			</button><br><br>
 		</div>
 
 		
 
 		<!--http://www.sharelinkgenerator.com/-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
+		<!--also referred to this for link to pinterest-->
 		<div class="shares">
 
 		<h6 class="shares-recipe"><strong>Share this recipe!</strong></h6>
 		<a href="https://www.facebook.com/sharer.php?u=" <i class="fa fa-facebook" aria-hidden="true"></i></a>
 		<a href="https://twitter.com/intent/tweet" <i class="fa fa-twitter" aria-hidden="true"></i></a>
+		<a href="https://pinterest.com/pin/create/link/?url=" <i class="fa fa-pinterest" aria-hidden="true"></i></a>
 
 		</div>
 
@@ -60,8 +62,14 @@
 <!--Taken from Spence Barribal's code (student Code Institute).-->
 {% if session['username'] == recipe.username %}
 <div class="row float-right">
-	<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-secondary mr-3" style="background-color:orangered; float:right">Edit Recipe</a><br><br>
+	<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="waves-effect waves-light btn" style="background-color:orangered; float:right"><i class="large material-icons">mode_edit</i>Edit Recipe</a></i><br><br>
+	
+
 	<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="btn btn-danger" style="background-color:orangered; float: right">Delete Recipe</a>
+	
+
+      
+	
 </div>
 {% endif %}
 </div>
