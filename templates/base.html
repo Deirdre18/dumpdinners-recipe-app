@@ -22,9 +22,11 @@
         body {
             font-family: Arial;
         }
+
         * {
             box-sizing: border-box;
         }
+
         form.example input[type=text] {
             padding: 5px;
             font-size: 11px;
@@ -34,6 +36,7 @@
             height: 1%;
             background: #f1f1f1;
         }
+
         form.example button {
             float: left;
             width: 2%;
@@ -46,9 +49,11 @@
             border-left: none;
             cursor: pointer;
         }
+
         form.example button:hover {
             background: #0b7dda;
         }
+
         form.example::after {
             content: "";
             clear: both;
@@ -66,6 +71,7 @@
         .pattern {
             min-height: 100px;
         }
+
         #stripes4 {
             background-image: repeating-linear-gradient(45deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px, orangered);
         }
@@ -156,17 +162,17 @@
 
                     <div class="search-container">
 
-                         <h6 class="lead-search" style="background-color:orangered; color:blue; text-align:left"><strong><i><i class="fa fa-cutlery" style="font-size: 15px"></i>Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time.....</i></strong><i class="fa fa-cutlery" style="font-size: 15px"></i></h6><br>
-                       
-                          
-                         <form class="example" action="{{ url_for('search') }}">
+                        <h6 class="lead-search" style="background-color:orangered; color:blue; text-align:left"><strong><i><i class="fa fa-cutlery" style="font-size: 15px"></i>Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time.....</i></strong><i class="fa fa-cutlery" style="font-size: 15px"></i></h6><br>
+
+
+                        <form class="example" action="{{ url_for('search') }}">
                             <input type="text" placeholder="Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time...." required name="query" style="margin-top:1px; width:40%; height:3em !important" style="color:black">
                             <div id="search">
                                 <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><strong><i class="fa fa-search" style="font-size:15px;float:left;color:blue"></strong>&nbspSearch...</i></button>
                             </div>
-                         
-                            </form>
-                      
+
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -207,6 +213,14 @@
                 $('select').material_select();
             });
         </script>
+
+        <!--function for 'back' button-->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
         <!--// to create footer referred to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer. For flexible footer referred to https://materializecss.com/footer.html // decided to make footer fixed rather than flexible-->
         <style>
             .footer {
@@ -218,9 +232,11 @@
                 background-color: blue;
                 color: white;
             }
+
             main {
                 flex: 1 0 auto;
             }
+
             .container {
                 margin-top: 15px;
                 margin-bottom: 3px;
@@ -236,35 +252,42 @@
                 border-radius: 50%;
                 height: 30px;
             }
+
             .fa:hover {
                 opacity: 0.7;
             }
+
             .fa-facebook {
                 background: #3B5998;
                 color: white;
                 text-align: center;
             }
+
             .fa-twitter {
                 background: #55ACEE;
                 color: white;
                 text-align: center;
             }
+
             .fa-youtube {
                 background: #bb0000;
                 color: white;
                 text-align: center;
             }
+
             .fa-pinterest {
                 background: #cb2027;
                 color: white;
                 text-align: center;
             }
+
             .fa-github {
                 background: black;
                 color: white;
                 text-align: center;
                 font-size: 15px;
             }
+
             strong {
                 font-weight: bold;
             }
@@ -283,4 +306,5 @@
                 <a href="https://plus.google.com/" class="fa fa-google-plus" style="font-size:30px; color:red"></a>
             </div>
 </body>
+
 </html>
