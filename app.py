@@ -89,7 +89,8 @@ def update_recipe(recipe_id):
         'date_added': request.form.get('date_added'),
         'is_vegetarian': request.form.get('is_vegetarian'),
         'views':1,
-        'likes':1
+        'likes':1,
+        'calories': request.form.get('calories')
         
         }
     })
@@ -114,8 +115,7 @@ def search():
             {'ingredients': query},
             {'recipe_name': query},
             {'category_name': query},
-            {'calories': query},
-            {'cooking_time': query}
+            {'calories': query}
         ]
     })
     return render_template('search.html', query=orig_query, results=results)
