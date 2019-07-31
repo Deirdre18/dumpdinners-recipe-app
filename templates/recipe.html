@@ -22,19 +22,19 @@
 			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></button><br><br>
 		</div>
 
-		
+
 
 		<!--http://www.sharelinkgenerator.com/-->
 		<!--referred to this for help with sharing links - https://css-tricks.com/simple-social-sharing-links/-->
 		<!--also referred to this for link to pinterest-->
 		<div class="shares">
 
-		<h6 class="shares-recipe"><strong>Share this recipe!</strong></h6>
-		<a href="https://www.facebook.com/sharer.php?u=" <i class="fa fa-facebook" aria-hidden="true"></i></a>
-		<a href="https://twitter.com/intent/tweet" <i class="fa fa-twitter" aria-hidden="true"></i></a>
-		<a href="https://pinterest.com/pin/create/link/?url=" <i class="fa fa-pinterest" aria-hidden="true"></i></a>
-		<a href="https://plus.google.com/share?url=" <i class="fa fa-google-plus" style="font-size:30px; color:red"></i></a>
-		
+			<h6 class="shares-recipe"><strong>Share this recipe!</strong></h6>
+			<a href="https://www.facebook.com/sharer.php?u=" <i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="https://twitter.com/intent/tweet" <i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://pinterest.com/pin/create/link/?url=" <i class="fa fa-pinterest" aria-hidden="true"></i></a>
+			<a href="https://plus.google.com/share?url=" <i class="fa fa-google-plus" style="font-size:30px; color:red"></i></a>
+
 		</div>
 
 		<div class="row" style="text-align:center"></div>
@@ -52,23 +52,25 @@
 					<h3>Methods</h3>
 					{{ recipe.methods }}
 				</div>
-				
 
 
-<!--taken from https://www.w3schools.com/jsref/met_his_back.asp-->
-<button onclick="goBack()" class="waves-effect waves-light btn"  style="background-color:orangered">Go Back</button>		
 
-		<p><strong>Submitted by:</strong>{{ recipe.username }} |  <strong>Date:</strong> {{recipe.date_added}}</p>
+				<!--referred here for back button - https://www.w3schools.com/jsref/met_his_back.asp-->
+				<br>
+				<button onclick="goBack()" class="waves-effect waves-light btn" style="background-color:orangered">Go Back</button></i>
+
+				<p><strong>Submitted by:</strong>{{ recipe.username }} | <strong>Date:</strong> {{recipe.date_added}}</p>
 			</div>
 		</div>
+		<strong><p class="danger-zone" style="color:red">** Please note deleting this recipe is irreversible and cannot be undone!</p></strong>
 </div>
 <!-- button for edit recipe -->
 <!--Taken from Spence Barribal's code (student Code Institute).-->
 {% if session['username'] == recipe.username %}
 <div class="row float-right">
 	<a href="{{ url_for('edit_recipe', recipe_id=recipe._id, username=username) }}" class="waves-effect waves-light btn" style="background-color:orangered; float:right"><i class="small material-icons">mode_edit</i>Edit Recipe</a><br><br>
-	
-	<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="waves-effect waves-light btn"  style="background-color:orangered; float:right"><i class="small material-icons">delete</i>Delete Recipe</a><br><br>
+
+	<a href="{{ url_for('delete_recipe', recipe_id=recipe._id, username=username) }}" class="waves-effect waves-light btn" style="background-color:orangered; float:right"><i class="small material-icons">delete</i>Delete Recipe</a><br><br>
 </div>
 {% endif %}
 </div>
@@ -79,7 +81,3 @@
 </div>
 </div>
 {% endblock %}
-
-
-
-
