@@ -19,8 +19,7 @@
 		</div>
 		<div>
 			<!--http://www.sharelinkgenerator.com/-->
-			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-			</button><br><br>
+			<strong>Like this recipe</strong>&nbsp<a href="{{ url_for('likes', recipe_id=recipe._id) }}" <button class="waves-effect waves-light btn-small" type="submit" style="background-color:blue; color: white; margin-left:10px" name=" action"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></button><br><br>
 		</div>
 
 		
@@ -53,7 +52,7 @@
 					<h3>Methods</h3>
 					{{ recipe.methods }}
 				</div>
-				<p><strong>Submitted by:<strong>{{ recipe.username }} |  <strong>Date:</strong> {{recipe.date_added}}</p>
+				<p><strong>Submitted by:</strong>{{ recipe.username }} |  <strong>Date:</strong> {{recipe.date_added}}</p>
 			</div>
 		</div>
 </div>
