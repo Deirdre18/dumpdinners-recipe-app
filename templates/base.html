@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <!--referred to this link for downloading bootstrap, as well as previous CI tutorials - https://forums.fedoraforum.org/showthread.php?314148-How-to-download-bootstrap-->
+    <!--Although I did not use Bootstrap in this project, I downloaded the files in case I wished to use it for buttons, etc. I referred to this link for downloading bootstrap, as well as previous CI tutorials - https://forums.fedoraforum.org/showthread.php?314148-How-to-download-bootstrap-->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,12 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='social-share-kit.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
-
     <!--referred to this for favicon - https://www.flaticon.com/-->
-
     <link rel="icon" type="image/ico" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!--styling for search button - referred to https://www.w3schools.com/howto/howto_css_search_button.as-->
     <style>
         body {
             font-family: Arial;
@@ -67,6 +66,7 @@
 
 <body>
 
+    <!--styling for css gradient color (orange) - referred to https://www.quackit.com/css/codes/patterns/css_background_stripes.cfm-->
     <style scoped>
         .pattern {
             min-height: 100px;
@@ -82,7 +82,7 @@
     <div id="stripes4" class="pattern">
 
 
-        <!--referred to code from Spence Barribal's github project for username in session below (Student at Code Institute).-->
+        <!--for username in sessions, I referred to code from another student (spence barriball) at code institute and looked at code to help with search routing - https://github.com/5pence/recipeGlut        -->
 
         {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4" style="text-align:center; color:blue"><strong>welcome back, {{ session['username'] }}</strong>
@@ -94,9 +94,6 @@
             <a href="{{ url_for('add_recipe') }}" <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action"><strong>Add Recipe</strong>
                 <i class="material-icons right">playlist_add</i>
              </button></div></a>
-
-
-
             <div class="display:block; text-align: center">
                 <a href="{{ url_for( 'logout') }}" style="text-decoration:underline; color:blue; text-align:center,color:blue"><strong>Logout</strong></a>
             </div>
@@ -131,6 +128,7 @@
                 </div>
 
             </nav>
+
             <!--referred to https://www.w3schools.com/howto/howto_css_search_button.asp-->
 
             {% if 'username' in session %}
@@ -139,8 +137,6 @@
                     <a href="{{ url_for('allrecipes') }}" style="color:orangered;text-decoration:underline"><strong>Home</strong></a>
                 </li>
                 {% endif %}
-
-
             </ul>
         </div>
 
