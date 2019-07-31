@@ -40,6 +40,8 @@ def allrecipes():
     recipes = mongo.db.recipes.find()
     return render_template('allrecipes.html', recipes=recipes)    
     
+
+# took idea of display only four recipes from another student at code institute (spence barriball) and looked at code to help with this - https://github.com/5pence/recipeGlut    
 @app.route('/allrecipes1')
 def allrecipes1():
     recipes = mongo.db.recipes.find()
@@ -52,17 +54,12 @@ def add_recipe():
     return render_template('addrecipe.html',
         recipes=mongo.db.categories.find())   
 
-    
-
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     flash ("Thank you, your recipe has been inserted!")
     return render_template('recipe.html', recipe=recipe)
-   
-         
-    
     
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
@@ -73,7 +70,6 @@ def edit_recipe(recipe_id):
         
         return render_template('editrecipe.html', recipe=recipe_db, categories=all_categories)
    
-
 # referred to this article for advice on 'views' - https://stackoverflow.com/questions/5782311/mongodb-inc-embedded-value-syntax
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
@@ -99,14 +95,12 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('allrecipes'))
     
-
-
-
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes'))
     
+# referred to code from another student (spence barriball) at code institute and looked at code to help with search routing - https://github.com/5pence/recipeGlut        
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
@@ -134,9 +128,6 @@ def recipe(recipe_id):
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
         { '$inc': { 'views': 1}}
-        
-        
-      
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return render_template('recipe.html', recipe=recipe_db)
@@ -150,15 +141,11 @@ def likes(recipe_id):
     mongo.db.recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
         { '$inc': { 'likes': 1}}
-        
-        
-      
     )
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     return redirect(url_for('allrecipes1'))
-
-#Copied routing for login from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
-
+    
+# referred to code for login routing from another student (deborah thompsonl) at code institute and looked at code to help with search routing - https://github.com/debbiect246/recipe-app  
 
 @app.route('/login', methods=["GET","POST"])
 def login():
@@ -190,22 +177,13 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
               
-    
-
- 
-#Copied routing for allrecipeslist from Deborah Thompson, student at Code Institute for login routing - #https://github.com/debbiect246/recipe-app#
-
-
 @app.route('/logout')
 def logout():
-    """Clears session and redirects to home"""
+    """Clears session after user is logged out"""
     
     session.clear()
     flash ("Thank you, hope to see you again soon!")
     return redirect(url_for('login'))
-
-
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
