@@ -85,7 +85,7 @@
         <!--Referred to stack overflow article on centering anchors.-->
 
         <div class="display:block; text-align: center">
-            <a href="{{ url_for('add_recipe') }}" <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">Add Recipe
+            <a href="{{ url_for('add_recipe') }}" <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action"><strong>Add Recipe</strong>
                 <i class="material-icons right">playlist_add</i>
              </button></div></a>
 
@@ -108,7 +108,7 @@
 
             <nav>
                 <div class="nav-wrapper">
-                    <a class="brand-logo" style="color:orangered">DumpDinners</a>
+                    <a class="brand-logo" style="color:orangered"><strong>DumpDinners<strong></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
 
@@ -146,9 +146,9 @@
                         <img src="{{ url_for('static', filename='uploads/' + 'still-life.jpg') }}">
                     </div>
 
-                    <h2 class="header center" class="header"><small>DumpDinners - Your Dumping Cookbook</small></h2>
+                    <h2 class="header center" class="header"><small><strong>DumpDinners - Your Dumping Cookbook</strong></small></h2>
 
-                    <h1 class="header center" class="header"><small>Get Dumping</small></h1>
+                    <h1 class="header center" class="header"><small><strong>Get Dumping</strong></small></h1>
                     <br><br><br>
 
 
@@ -162,7 +162,7 @@
                          <form class="example" action="{{ url_for('search') }}">
                             <input type="text" placeholder="Search by Recipe Name, Ingredients, Category, Username, Calories or Cooking Time...." required name="query" style="margin-top:1px; width:40%; height:3em !important" style="color:black">
                             <div id="search">
-                                <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><i class="fa fa-search" style="font-size:15px;float:left">&nbspSearch</i></button>
+                                <button type="submit" style="margin-top:1px; width:28%; height:4em !important; background-color:orangered"><strong><i class="fa fa-search" style="font-size:15px;float:left;color:blue"><strong>&nbspSearch</strong></i></button>
                             </div>
                          
                             </form>
