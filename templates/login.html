@@ -34,49 +34,24 @@
             </div>
         </div>
 
-            <!-- button to submit form -->
+        <!-- button to submit form -->
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-md-12">
-                    <button class="btn btn-bg waves-effect waves-light" style= "background-color:orangered" type="submit" name="action">Login
+            <div class="col-md-12">
+                <button class="btn btn-bg waves-effect waves-light" style="background-color:orangered" type="submit" name="action">Login
                     <i class="material-icons right">exit_to_app</i></button>
-                    
-                </div>
 
             </div>
 
-            <!-- user can register by using register link-->
+        </div>
 
-            <a href="{{url_for('register')}}" style="text-decoration:underline;color:orangered" ><strong>Don't have an account? Register here</strong></a>
-            
-           
+        <!-- user can register by using register link-->
+
+        <a href="{{url_for('register')}}" style="text-decoration:underline;color:orangered"><strong>Don't have an account? Register here</strong></a>
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-
-    <script type="text/javascript">
-        
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-            $('select').material_select();
-        });
-        $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
-        });
-
-        $(document).ready(function() {
-            $('.parallax').parallax();
-        });
-    </script>
-
 
     {% endblock %}

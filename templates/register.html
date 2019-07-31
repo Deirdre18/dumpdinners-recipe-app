@@ -16,7 +16,6 @@
             </div>
         </div>
 
-
         <div class="row">
 
             <div class="input-field col s6">
@@ -34,49 +33,25 @@
             </div>
         </div>
 
-            <!-- button to submit form -->
+        <!-- button to submit form -->
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-md-12">
-                    <button class="btn btn-bg waves-effect waves-light" style= "background-color:orangered" type="submit" name="action">Register
+            <div class="col-md-12">
+                <button class="btn btn-bg waves-effect waves-light" style="background-color:orangered" type="submit" name="action">Register
                     <i class="material-icons right">exit_to_app</i></button>
-                    
-                </div>
 
             </div>
 
-            <!-- user can register by using register link-->
+        </div>
 
-            <a href="{{url_for('login')}}" style="text-decoration:underline;color:orangered" ><strong>Do you have an account? Login here</strong></a>
-            
-           
+        <!-- user can register by using register link-->
+
+        <a href="{{url_for('login')}}" style="text-decoration:underline;color:orangered"><strong>Do you have an account? Login here</strong></a>
+
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-
-    <script type="text/javascript">
-        /*Collapsable elements are in place but not firing yet. We use Jquery document.ready) function when document is ready, when all the html elements have rendered.  So we'll place this in the base.html in the parent template so that any collapsible elements can access this functionality when they're being rendered. So we now have our accordion in place. What we'll do next is we will dynamically add tasks to those accordion elements.*/
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-            $('select').material_select();
-        });
-        $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
-        });
-
-        $(document).ready(function() {
-            $('.parallax').parallax();
-        });
-    </script>
-
 
     {% endblock %}

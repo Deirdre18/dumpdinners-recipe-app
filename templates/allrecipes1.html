@@ -1,9 +1,8 @@
 {% extends "base.html" %} {% block content %}
 
 <h1 class="title">Recipes</h1>
-{#{{referred to https://github.com/pierceoneill/code-institute-milestone-project-04/blob/master/templates/recipes.html for recipe-cards code.}}#}
 
-
+{#{{referred to https://github.com/pierceoneill/code-institute-milestone-project-04/blob/master/templates/recipes.html for recipe-cards and also referred to materialisecss}}#}
 
 <div id="recipe-cards" class="row">
     {% for recipe in recipes %}
@@ -16,10 +15,11 @@
 
             </div>
         </div>
+        
+         <!--created blank spaces, referred to https://www.computerhope.com/jargon/n/nbsp.htm-->
         <strong><i class="fa fa-eye" aria-hidden="true" style="color:blue;font-size: 15px">&nbsp&nbsp{{recipe.views}}</i></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         <strong><i class="fa fa-heart" aria-hidden="true" style="color:red; font-size: 15px">&nbsp&nbsp{{recipe.likes}}</i></strong><br>
         <strong><i class="fa fa-cutlery"aria-hidden="true" style="color:blue;font-size: 15px">&nbsp&nbsp{{recipe.category_name}}</i><strong>
-
 
         <div class="card-image">
             <img src="{{recipe.image}}" width="200" height="200" style="margin-top" : 40%;>
@@ -29,39 +29,31 @@
         <div class="card-body" style="white-space:normal">
 
             <p id="short_description"></p><strong><em>{{recipe.short_description}}</strong></em>
-            </p>
-
-        </div>
-
-        <h6 class="view-and-share"><strong> View and Share!</strong>
-        </h6>
-        <p class=shares "col s4 m3 l3" style="white-space:normal">
-
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-            <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i>
-             <i class="fa fa-pinterest" aria-hidden="true"></i>
-             <i class="fa fa-google-plus" style="font-size:30px; color:red"></i>
         </p>
 
-        <div class="card-footer" style="white-space:normal">
+    </div>
 
+    <h6 class="view-and-share">View and Share!
+    </h6>
+    <p class=shares "col s4 m3 l3" style="white-space:normal">
 
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true" style="color: light-blue"></i>
+        <i class="fa fa-pinterest" aria-hidden="true"></i>
+        <i class="fa fa-google-plus" style="font-size:30px; color:red"></i>
+    </p>
 
-            <div class="card-action">
-                <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More
+    <div class="card-footer" style="white-space:normal">
+        <div class="card-action">
+            <a href="/recipe/{{ recipe._id }}"> <button class="btn waves-effect waves-light" type="submit" style="background-color:orangered" name="action">See More
                 <i class="material-icons right">view_list</i>
              </button></a>
-                <br><br><br>
-
-            </div>
+            <br><br><br>
 
         </div>
 
-
-
-
-        <!-- more display -->
     </div>
-    {% endfor %} 
     
-    {% endblock %}
+    <!-- more display -->
+</div>
+{% endfor %} {% endblock %}
