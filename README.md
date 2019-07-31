@@ -53,7 +53,9 @@ This is the plan or flow of interactions users will take to navigate and underst
 
 In this section, I tried to place the elements in appropriate places, and in a logical order – such as navbar, then heading, then brief explanation of the project using unordered listing.  I used Baslamic to create wireframes. I visualised in my mind and sketched the layout, and instead of using the sketch tools (and also due to time limitations) which Baslamic provides, I created blobs using Baslamiq with screenshots of different views on website, giving explanation for each. 
 
-I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - Wireframes/Mock-up Blobs using screenshots and Baslamiq](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
+I took screenshots of the various views for user logged in, add recipe, edit recipe, recipe, login, register and home/index - [Wireframes/Mock-up Blobs using screenshots and Baslamiq](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners.pdf)
+
+I also tested the search button for recipes, which users can search by inputting Recipe Name, Username, Category. Ingredients, Calories or Cooking Time. The results are as follows and when the user clicks on 'More', they're shown the recipe page - [SEARCH FEATURE](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners-Search%20button.pdf)
 
 ### **Surface**
 
@@ -77,14 +79,16 @@ All typography was in English but as Google has a translator, can be easily tran
 - Search bar to search for recipes using 'keyword' or 'ingredients' or 'recipe name'. This feature is responsive across all mobile devices. 
 - I added a favicon feature to DumpDinners website, referring to this article - [Favicon](https://www.flaticon.com/)
 - Users can 'Like' a recipe and likes are incremented, in the same way as user views. 'Likes' are not specific to any username but users does need to be logged in, to 'Like' all recipes (allrecipes.html). Anyone can 'Like' the first 4 recipes, however, as this is the Home page and does not require user login. 
+- Users can search a recipe by Recipe Name, Username, Ingredients, Category, Calories and Cooking Time. Search navigation is easy. I have just recently added 2 further categories (Calories and Cooking time - as these are important factors for users).
+- Users can share on social media (Facebook, Twitter, Pinterest, Google+) once they get to the recipe page. They can also see on how many users viewed the recipe or liked it, and also the categories. Unfortunately I wasn't able to 'increment the number of social media shares, despite trying very hard to do so. I downloaded ssk files (from social share kit), which had very good buttons but there was no 'count of shares, despite a lot of css code being used, so I disregarded this idea and went with what I understood and what worked, even if there was no increments of shares. It is possible for users to share recipes however, regardless if they are incremented or not (and I have tested this myself).
 
 ### **Features Left to Implement**
 - Unfortunately I did not get time to add a user dashboard, for example showing all recipes 'Liked' or recipes viewed. I had hoped possibly to be able to get this done but unfortunately I ran out of time. 
 - I had hoped to add flask messaging for users who want to delete a recipe they added, with a 'danger' message (ie) "Do you really want to delete this message, as this action is irreversible?". Unfortunately I did not get time to do this. 
-- Had hoped to add a 'back button' to web pages, and not sure if I will have time to do so, to increase ease of navigation. The website is easy to navigate however. 
-- I had hoped to add an 'About Page' detailing the idea behind DumpDinners website and contact page, but again time is limited.
 - Recipes are displayed showing ingredients and methods in paragraph format, separated by bullet points, rather than on single lines. I used - 'pre-wrap': 'normal' for this. Ideally I would've preferred that the contents of the recipe were listed singularly but I had a lot of work to do developing the website, and I didn't focus too much on this aspect. My main purpose was to build a website that looked and felt good to use, and was functional, even if only basic functions. The important thing I remembered was that functions like CRUD could be carried out with minimum of ease. 
 - Login security features was handled by importing 'from werkzeug.security import generate_password_hash, check_password_hash'. However I did not install flask bycrypt, so users could create any password and didn't have to be composed of numbers/special characters/letters, etc. 
+- I did not get to use Pagination for the recipes (12 in total). As I focussed on other parts of the project more and was also under time pressure, I could not implement this feature. 
+
 ### **Flask**
 
 - What is Flask?
@@ -153,17 +157,19 @@ Flash messages were shown for the following:-
 
 - Login - [WELCOME BACK MESSAGE](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/static/flash%20messages/welcome%20back%20message%2C%20when%20on%20successful%20login.PNG)
 
-From a testing view-point, I've tested responsiveness on both mobile and desktop, in a variety of screen sizes using Google Chrome Developer tools. I tested responsiveness across small, large and medium screens. 
+I also tested features such as 'Search' function to ensure it worked correctly and my findings are that it does work successfully (on both large and small screens). Using can search using Recipe Name, Username, Category, Ingredients, Calories or Cooking Time. These are the results of tests using Search - [RECIPE SEARCH](https://github.com/Deirdre18/dumpdinners-recipe-app/blob/master/Mock-ups/Mock-ups%20DumpDinners-Search%20button.pdf)
+
+I've also tested responsiveness on both mobile and desktop, in a variety of screen sizes using Google Chrome Developer tools. I tested responsiveness across small, large and medium screens. 
 
 - Google Chrome (version 68)
 - Opera (version 55)
 - Mozilla Firefox Developer (version 63)
 - Internet Explorer (version 11)
 
-**Testing across desktop (using developer tools) and mobile browsers**
+**Testing across desktop/large laptop (using developer tools) and mobile browsers**
 I have tested DumpDinners website on the above desktop browsers. On Firefox developer tools, I tested mobile responsiveness for Apple iPad Air2, Apple iPad Mini2, Apple iPad iPhone 6s, Google nexus 4,5,6,7, Laptop (1280px x 720px and 1366px x 768px), Nokia Lumia 520, Samsung Galaxy Note 3, Samsung Galaxy S5 and S7. On Chrome developer tools, I tested responsiveness for mobile small (320px), Mobile medium (375 x 840 px), Mobile large (425 x 960 px), tablet (768px x 2152px), laptop medium (1024px x 2241px), laptop large/medium (1440 x 3586px), laptop large (2138px x 5977px). 
 
-Further testing in Python has not been carried out at this stage, due to time limitations. 
+Further testing has not been carried out at this stage, due to time limitations. 
 
 ## **Version Control (GitHub)**
 

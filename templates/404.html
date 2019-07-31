@@ -1,0 +1,10 @@
+<!--Credit to Spencer Bariball (student at Code Institute) - https://github.com/5pence/recipeGlut/. -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Oops...</h1>
+    <p>Something went wrong and we lost our way, want to go to the <a href="{{ url_for('index'}}">Home Page</a></p>
+    <p>If you're interested the reason was:</p>
+    <p>{{ exception }}</p>
+{%  endblock %}
