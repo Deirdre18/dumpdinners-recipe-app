@@ -1,3 +1,7 @@
+/*please note there maybe some code here that was not used in this project, as I initially added some code, that changed later but most of the code in this stylesheet does refer to the DumpDinners project. */
+
+/*please note also I have put a lot of styling in base.html. Due to CSS rules for precedence, puting code under <style> tags in base.html was the most approrpriate place rather than in this stylesheet. */
+
 .card-body {
     width: 75%;
     margin-left: 0;
@@ -6,42 +10,56 @@
     white-space: pre-wrap;
 }
 
-#search [type="search"] [name="query"]
-{
-     height: 30px;
-     width: 50px;
+#search [type="search"] [name="query"] {
+    height: 30px;
+    width: 50px;
 }
 
 
-h3 {margin-top: 10%}   
-   
-.main { margin-top: 20px;}
-
-.card-image {width:25%;}
-
-h5 .lead-search {margin-bottom: 0}   
-
-p .heading {margin-top: 30%;}
-
-
-.card-image {white-space: pre-wrap;
-            margin-bottom: -80px;
+h3 {
+    margin-top: 10%
 }
 
-
-h1 {text-align: center;
+.main {
     margin-top: 20px;
-    
 }
 
-p {margin-top: 20%;}
+.card-image {
+    width: 25%;
+}
+
+h5 .lead-search {
+    margin-bottom: 0
+}
+
+p .heading {
+    margin-top: 30%;
+}
 
 
+.card-image {
+    white-space: pre-wrap;
+    margin-bottom: -80px;
+}
 
-.nav-wrapper {background-color: blue;}
 
+h1 {
+    text-align: center;
+    margin-top: 20px;
 
-.brand-logo{text-align:left;}
+}
+
+p {
+    margin-top: 20%;
+}
+
+.nav-wrapper {
+    background-color: blue;
+}
+
+.brand-logo {
+    text-align: left;
+}
 
 .btn_small {
     height: 24px;
@@ -50,6 +68,3 @@ p {margin-top: 20%;}
     margin: 5px 5px;
     padding: 0 0.5em;
 }
-
-
-
